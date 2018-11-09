@@ -1,0 +1,87 @@
+@import '../assets/_variables.scss';
+
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 80%, rgba(0, 0, 0, 1) 99%), url("../img/team.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    main {
+        display: flex;
+        flex: 0 0 auto;
+        section {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            top: 5rem;
+            form {
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                ul {
+                    background: $lightGrey;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex: 0 0 600px;
+                    padding: 1rem;
+                    li {
+                        flex: 0 0 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin: 1rem auto;
+                        justify-content: center;
+                        input {
+                            padding: 1rem;
+                            border: none;
+                            outline: none;
+                            border-radius: 10px;
+                            &:not([type=button]) {
+                                background: transparent;
+                                border-bottom: 2px solid lightslategrey;
+                                border-bottom-left-radius: 10px;
+                                border-top-radius: 0;
+                                border-bottom-right-radius: 0;
+                            }
+                        }
+                        &:nth-of-type(2) {
+                            justify-content: space-around;
+                            input {
+                                &:first-of-type {
+                                    flex: 0 0 50%;
+                                }
+                            }
+                        }
+                        &:nth-of-type(3) {
+                            justify-content: space-around;
+                            input {
+                                &:first-of-type {
+                                    flex: 0 0 50%;
+                                }
+                            }
+                        }
+                        /* login btn */
+                        &:last-of-type {
+                            justify-content: center;
+                            input {
+                                flex: 0 0 20%;
+                                transition: all 0.2s ease-in-out;
+                                cursor: pointer;
+                                &:hover {
+                                    color: white;
+                                    background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+                                    linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+                                    linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+                                }
+                                &:focus {
+                                    box-shadow: 0 0 10px $pink;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
