@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,IAAK;EACD,UAAU,EAAE,6KAAmM;EAC/M,eAAe,EAAE,KAAK;EACtB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,eAAe,EAAE,MAAM",
-"sources": ["boardList.scss"],
-"names": [],
-"file": "boardList.css"
-}
