@@ -1,4 +1,5 @@
 .idea/
+*.iml
 
 # user specific stuff
 .idea/**/workspace.xml
