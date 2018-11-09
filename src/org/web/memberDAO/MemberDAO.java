@@ -16,6 +16,10 @@ public class MemberDAO {
     private MemberDAO() {
     }
 
+    private static class singleton {
+        private static final MemberDAO instance = new MemberDAO();
+    }
+
     public static MemberDAO getInstance() {
         return singleton.instance;
     }
@@ -61,7 +65,6 @@ public class MemberDAO {
     // join method
     public int memberJoin(String userId, String userPw, String userEmail) {
         int result = 0;
-
         String query = "";
 
         try {
@@ -83,7 +86,31 @@ public class MemberDAO {
         return result;
     }
 
-    private static class singleton {
-        private static final MemberDAO instance = new MemberDAO();
+    public int memberLogin(String userId, String userPw) {
+        int result = 0;
+        String query = "";
+
+         try {
+             conn = DBConnect.getConnection();
+             query = "select count(*) from simpleDatabase.members where userId=? and userPw=?";
+             pstm = conn.prepareStatement(query);
+
+             pstm.setString(1, userId);
+             pstm.setString(2, userPw);
+
+             rs = pstm.executeQuery();
+
+             if (rs != null) {
+                 while (rs.next()) {
+                     result = rs.getInt(1);
+                 }
+             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+             cleanUp();
+         }
+
+        return result;
     }
 }

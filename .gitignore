@@ -10,6 +10,7 @@
 
 # generated files
 .idea/**/contentModel.xml
+*.map
 
 # sensitive or high-churn files
 .idea/**/dataSources/

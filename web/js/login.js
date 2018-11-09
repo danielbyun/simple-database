@@ -29,5 +29,24 @@ function loginOk() {
         return false;
     }
 
-    loginForm.submit();
+    // ajax (fetch API)
+    let data = `userId=${encodeURIComponent(userId.value)}&userPw=${encodeURIComponent(userPw.value)}`;
+    let url = "login.mo";
+
+    fetch(`${url}?${data}`)
+        .then(function (resp) {
+            return resp.text();
+        })
+        .then(function (data) {
+            // successful
+            if (data == 1) {
+                location.href = "/boardList.do";
+
+                // failed
+            } else {
+                errorMessage.style.display = "flex";
+                errorMessage.innerHTML = "something went wrong, please try again";
+                userId.focus();
+            }
+        })
 }

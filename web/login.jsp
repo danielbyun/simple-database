@@ -12,6 +12,7 @@
         <main>
             <section>
                 <form action="login.mo" method="post" name="loginForm" id="loginForm">
+                    <span id="errorMsg">error</span>
                     <ul>
                         <li><h1>login</h1></li>
                         <li><input type="text" name="userId" id="userId" placeholder="your id"></li>
@@ -22,5 +23,6 @@
             </section>
         </main>
         <jsp:include page="footer.jsp"/>
+        <script src="js/login.js"></script>
     </body>
 </html>

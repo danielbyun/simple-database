@@ -48,3 +48,18 @@ board side of tings
 2) editing feature (edit [aka update], delete)
     * only when user is logged and the post belongs to the user
 3) listing feature
+
+11/9/2018
+- implemented the registering feature
+    - add some sort of checks for userId, userPw? (making sure it's long enough for the password, etc)
+- implemented the login feature (with session)
+    - nice to haves:
+        1) if the userId does exist, tell the user that it's just the password that's incorrect
+        2) if the userId doesn't exist, just say everything is messed up
+
+11/10/2018
+- member edit feature
+    - the user should be able to view his/her profile (only viewable to the user himself/herself)
+        - edit (aka update), delete (if they want, delete all the content they posted)
+
+- start creating boards (content)

@@ -11,7 +11,8 @@
                 // logged in
                 if (session.getAttribute("sessionId") != null) {
             %>
-            <li><a href="boardWrite.bo">WRITE A POST</a></li>
+            <li><a href="boardWrite.bo">WRITE</a></li>
+            <li><a href="memberEdit.do"><%= session.getAttribute("sessionId") %></a></li>
             <%
                 // not logged in
             } else {

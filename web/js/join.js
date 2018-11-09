@@ -62,6 +62,7 @@ function checkID() {
             if (data == 1) {
                 errorMessage.style.display = "flex";
                 errorMessage.innerHTML = "that id is taken, please try a different one!";
+
                 userId.focus();
             } else {
                 errorMessage.style.display = "flex";

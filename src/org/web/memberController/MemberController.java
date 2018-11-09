@@ -3,6 +3,7 @@ package org.web.memberController;
 import org.web.memberCommand.IdCheck;
 import org.web.memberCommand.MemberCommand;
 import org.web.memberCommand.MemberJoin;
+import org.web.memberCommand.MemberLogin;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,6 +45,13 @@ public class MemberController extends HttpServlet {
         if (basicURL.equals("/join.mo")) {
             System.out.println("join requested");
             action = new MemberJoin();
+            action.executeQueryCommand(req, resp);
+
+            url = (String)req.getAttribute("url");
+        }
+        if (basicURL.equals("/login.mo")) {
+            System.out.println("login requested");
+            action = new MemberLogin();
             action.executeQueryCommand(req, resp);
 
             url = (String)req.getAttribute("url");

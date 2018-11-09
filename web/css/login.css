@@ -11,12 +11,22 @@ body {
       width: 100%;
       margin: 0 auto;
       position: relative;
-      top: 5rem; }
+      top: 5rem;
+      display: flex; }
       body main section form {
         border-radius: 10px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         margin: 0 auto; }
+        body main section form span {
+          flex: 0 0 600px;
+          border-radius: 10px;
+          background-color: red;
+          color: #efefef;
+          padding: 1rem;
+          margin-bottom: 10px;
+          display: none; }
         body main section form ul {
           background: #efefef;
           border-radius: 10px;

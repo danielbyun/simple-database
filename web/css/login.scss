@@ -14,11 +14,22 @@ body {
             margin: 0 auto;
             position: relative;
             top: 5rem;
+            display: flex;
             form {
                 border-radius: 10px;
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: center;
                 margin: 0 auto;
+                span {
+                    flex: 0 0 600px;
+                    border-radius: 10px;
+                    background-color: $error;
+                    color: $lightGrey;
+                    padding: 1rem;
+                    margin-bottom: 10px;
+                    display: none;
+                }
                 ul {
                     background: $lightGrey;
                     border-radius: 10px;
