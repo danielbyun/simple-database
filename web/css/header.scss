@@ -1,8 +1,7 @@
 @import '../assets/_variables.scss';
 
 header {
-    background: rgba(0, 0, 0, 1);
-    section {
+    section.s1 {
         height: 4rem;
         display: flex;
         justify-content: center;
@@ -15,15 +14,62 @@ header {
         height: 2rem;
         display: flex;
         background: $navOrange;
+        flex-wrap: wrap;
         ul {
             display: flex;
             justify-content: space-around;
             align-items: center;
             flex: 0 0 100%;
             height: 100%;
-            a {
-                text-decoration: none;
-                color: $black;
+            li {
+                height: 100%;
+                width: 100%;
+                a {
+                    text-decoration: none;
+                    color: $black;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            .dropdown {
+                display: inline-block;
+                position: relative;
+                height: 100%;
+                width: 100%;
+                border-radius: 10px;
+                &:hover {
+                    .dropdownContent {
+                        display: flex;
+                        flex-wrap: wrap;
+                        position: relative;
+                        background-color: #f1f1f1;
+                        min-width: 160px;
+                        width: 50%;
+                        margin: 0 auto;
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                        z-index: 1;
+                        border-radius: 10px;
+                        a {
+                            color: $black;
+                            padding: 12px 0;
+                            text-decoration: none;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex: 0 0 100%;
+                            border-radius: 10px;
+                            &:hover {
+                                background-color: #ddd;
+                            }
+                        }
+                    }
+                }
+                .dropdownContent {
+                    display: none;
+                }
             }
         }
     }

@@ -54,11 +54,9 @@ function checkID() {
     let url = "idCheck.mo";
 
     fetch(`${url}?${data}`)
-        .then(function (resp) {
-            return resp.text();
-        })
-        // this is where we retrieve the result
-        .then(function (data) {
+        .then((resp) => resp.text())
+        .then((data) => {
+            // this is where we retrieve the result
             if (data == 1) {
                 errorMessage.style.display = "flex";
                 errorMessage.innerHTML = "that id is taken, please try a different one!";

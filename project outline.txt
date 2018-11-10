@@ -63,3 +63,4 @@ board side of tings
         - edit (aka update), delete (if they want, delete all the content they posted)
 
 - start creating boards (content)
+- get jstl working in intellij

@@ -32,12 +32,21 @@ public class Controller extends HttpServlet {
         if (basicURL.equals("/boardList.do")) {
             System.out.println("redirecting user to boardList page");
             url = "/boardList.jsp";
+        } else if (basicURL.equals("/boardWrite.do")) {
+            System.out.println("redirecting user to boardWrite page");
+            url = "/boardWrite.jsp";
         } else if (basicURL.equals("/join.do")) {
             System.out.println("redirecting user to signup page");
             url = "/join.jsp";
         } else if (basicURL.equals("/login.do")) {
             System.out.println("redirecting user to login page");
             url = "/login.jsp";
+        } else if (basicURL.equals("/profile.do")) {
+            System.out.println("redirecting user to view member's profile page");
+            url = "/profile.jsp";
+        } else if (basicURL.equals("/deleteProfile.do")) {
+            System.out.println("delete profile");
+            url = "/deleteProfile.jsp";
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);

@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to bottom, black 1%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 80%, black 99%), url("../img/team.jpg") no-repeat center center fixed;
+  background: linear-gradient(to bottom, black 1%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 80%, black 99%), url("../img/team.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   flex-direction: column;

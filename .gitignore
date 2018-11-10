@@ -1,5 +1,4 @@
 .idea/
-*.iml
 
 # user specific stuff
 .idea/**/workspace.xml
@@ -10,7 +9,6 @@
 
 # generated files
 .idea/**/contentModel.xml
-*.map
 
 # sensitive or high-churn files
 .idea/**/dataSources/
@@ -24,3 +22,6 @@
 # intellij
 out/
 
+*.iml
+*.map
+*.jar

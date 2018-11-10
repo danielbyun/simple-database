@@ -16,7 +16,7 @@
                     <ul>
                         <li><h1>login</h1></li>
                         <li><input type="text" name="userId" id="userId" placeholder="your id"></li>
-                        <li><input type="text" name="userPw" id="userPw" placeholder="********"></li>
+                        <li><input type="password" name="userPw" id="userPw" placeholder="*****"></li>
                         <li><input type="button" value="login" id="loginBtn"></li>
                     </ul>
                 </form>

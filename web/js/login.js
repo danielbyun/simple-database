@@ -34,15 +34,11 @@ function loginOk() {
     let url = "login.mo";
 
     fetch(`${url}?${data}`)
-        .then(function (resp) {
-            return resp.text();
-        })
-        .then(function (data) {
+        .then((resp) => resp.text())
+        .then((data) => {
             // successful
             if (data == 1) {
                 location.href = "/boardList.do";
-
-                // failed
             } else {
                 errorMessage.style.display = "flex";
                 errorMessage.innerHTML = "something went wrong, please try again";
@@ -50,3 +46,4 @@ function loginOk() {
             }
         })
 }
+

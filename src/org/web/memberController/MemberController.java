@@ -1,9 +1,6 @@
 package org.web.memberController;
 
-import org.web.memberCommand.IdCheck;
-import org.web.memberCommand.MemberCommand;
-import org.web.memberCommand.MemberJoin;
-import org.web.memberCommand.MemberLogin;
+import org.web.memberCommand.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,17 +38,33 @@ public class MemberController extends HttpServlet {
             action.executeQueryCommand(req, resp);
 
             url = (String)req.getAttribute("url");
-        }
-        if (basicURL.equals("/join.mo")) {
+        } else if (basicURL.equals("/join.mo")) {
             System.out.println("join requested");
             action = new MemberJoin();
             action.executeQueryCommand(req, resp);
 
             url = (String)req.getAttribute("url");
-        }
-        if (basicURL.equals("/login.mo")) {
+        } else if (basicURL.equals("/login.mo")) {
             System.out.println("login requested");
             action = new MemberLogin();
+            action.executeQueryCommand(req, resp);
+
+            url = (String)req.getAttribute("url");
+        } else if (basicURL.equals("/logout.mo")) {
+            System.out.println("logout requested");
+            action = new MemberLogout();
+            action.executeQueryCommand(req, resp);
+
+            url = (String)req.getAttribute("url");
+        } else if (basicURL.equals("/updateProfile.mo")) {
+            System.out.println("update profile credentials");
+            action = new MemberUpdate();
+            action.executeQueryCommand(req, resp);
+
+            url = (String)req.getAttribute("url");
+        } else if (basicURL.equals("/deleteProfile.mo")) {
+            System.out.println("delete profile");
+            action = new MemberDelete();
             action.executeQueryCommand(req, resp);
 
             url = (String)req.getAttribute("url");

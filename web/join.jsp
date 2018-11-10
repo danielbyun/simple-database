@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>simple database</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equipv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/join.css">
     </head>
@@ -18,8 +21,8 @@
                             <input type="button" value="check id" id="checkId">
                         </li>
                         <li>
-                            <input type="password" name="userPw" id="userPw" placeholder="*********">
-                            <input type="password" name="userPwCheck" id="userPwCheck" placeholder="*********">
+                            <input type="password" name="userPw" id="userPw" placeholder="*****">
+                            <input type="password" name="userPwCheck" id="userPwCheck" placeholder="*****">
                         </li>
                         <li>
                             <input type="email" name="userEmail" id="userEmail" placeholder="your email">
