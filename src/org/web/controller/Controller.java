@@ -23,18 +23,21 @@ public class Controller extends HttpServlet {
     private void doService(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("utf-8");
 
+        // retrieving the url
         String path = req.getContextPath();
         String URI = req.getRequestURI();
+
+        // substringing to cut out everything before /
         String basicURL = URI.substring(path.length());
 
         String url = "";
 
+        // basically the index page
         if (basicURL.equals("/boardList.do")) {
             System.out.println("redirecting user to boardList page");
             url = "/boardList.jsp";
-        } else if (basicURL.equals("/boardWrite.do")) {
-            System.out.println("redirecting user to boardWrite page");
-            url = "/boardWrite.jsp";
+
+            // member controllers
         } else if (basicURL.equals("/join.do")) {
             System.out.println("redirecting user to signup page");
             url = "/join.jsp";
@@ -44,9 +47,15 @@ public class Controller extends HttpServlet {
         } else if (basicURL.equals("/profile.do")) {
             System.out.println("redirecting user to view member's profile page");
             url = "/profile.jsp";
+        } else if (basicURL.equals("/updateProfile.do")) {
+            System.out.println("redirecting user to update page");
+            url = "/updateProfile.jsp";
         } else if (basicURL.equals("/deleteProfile.do")) {
             System.out.println("delete profile");
             url = "/deleteProfile.jsp";
+        } else if (basicURL.equals("/profileDeleted.do")) {
+            System.out.println("profile deleted confirmation");
+            url = "/profileDeleted.jsp";
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);

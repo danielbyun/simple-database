@@ -16,7 +16,7 @@
                 <div class="dropdown">
                     <span><a href="memberView.do"> <%= session.getAttribute("sessionId") %></a></span>
                     <div class="dropdownContent">
-                        <a href="profile.do">my profile</a>
+                        <a href="viewProfile.mo?userId=<%= session.getAttribute("sessionId") %>">my profile</a>
                         <a href="logout.mo">logout</a>
                     </div>
                 </div>

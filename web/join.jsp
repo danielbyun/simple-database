@@ -21,8 +21,8 @@
                             <input type="button" value="check id" id="checkId">
                         </li>
                         <li>
-                            <input type="password" name="userPw" id="userPw" placeholder="*****">
-                            <input type="password" name="userPwCheck" id="userPwCheck" placeholder="*****">
+                            <input type="password" name="userPw" id="userPw" placeholder="*****" onkeyup="checkPwFunc()">
+                            <input type="password" name="userPwCheck" id="userPwCheck" placeholder="*****" onkeyup="checkPwFunc()">
                         </li>
                         <li>
                             <input type="email" name="userEmail" id="userEmail" placeholder="your email">

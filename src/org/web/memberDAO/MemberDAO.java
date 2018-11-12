@@ -1,6 +1,7 @@
 package org.web.memberDAO;
 
 import org.web.dbConnect.DBConnect;
+import org.web.memberDTO.MemberDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,10 +15,6 @@ public class MemberDAO {
 
     // singleton method to have MemberDAO be retrieved without starting a new instantiation every time
     private MemberDAO() {
-    }
-
-    private static class singleton {
-        private static final MemberDAO instance = new MemberDAO();
     }
 
     public static MemberDAO getInstance() {
@@ -38,11 +35,10 @@ public class MemberDAO {
     // id validation method
     public int idCheck(String userId) {
         int result = 0;
-        String query = "";
 
         try {
             conn = DBConnect.getConnection();
-            query = "select count(*) from simpleDatabase.members where userId = ?";
+            String query = "select count(*) from simpleDatabase.members where userId = ?";
             pstm = conn.prepareStatement(query);
 
             pstm.setString(1, userId);
@@ -65,11 +61,10 @@ public class MemberDAO {
     // join method
     public int memberJoin(String userId, String userPw, String userEmail) {
         int result = 0;
-        String query = "";
 
         try {
             conn = DBConnect.getConnection();
-            query = "insert into simpleDatabase.members (userId, userPw, userEmail) values (?, ?, ?)";
+            String query = "insert into simpleDatabase.members (userId, userPw, userEmail) values (?, ?, ?)";
             pstm = conn.prepareStatement(query);
 
             pstm.setString(1, userId);
@@ -88,29 +83,82 @@ public class MemberDAO {
 
     public int memberLogin(String userId, String userPw) {
         int result = 0;
-        String query = "";
 
-         try {
-             conn = DBConnect.getConnection();
-             query = "select count(*) from simpleDatabase.members where userId=? and userPw=?";
-             pstm = conn.prepareStatement(query);
+        try {
+            conn = DBConnect.getConnection();
+            String query = "select count(*) from simpleDatabase.members where userId=? and userPw=?";
+            pstm = conn.prepareStatement(query);
 
-             pstm.setString(1, userId);
-             pstm.setString(2, userPw);
+            pstm.setString(1, userId);
+            pstm.setString(2, userPw);
 
-             rs = pstm.executeQuery();
+            rs = pstm.executeQuery();
 
-             if (rs != null) {
-                 while (rs.next()) {
-                     result = rs.getInt(1);
-                 }
-             }
+            if (rs != null) {
+                while (rs.next()) {
+                    result = rs.getInt(1);
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-             cleanUp();
-         }
+            cleanUp();
+        }
 
         return result;
     }
+
+    public int memberDelete(String userId, String userPw) {
+        int result = 0;
+
+        try {
+            conn = DBConnect.getConnection();
+            String query = "delete from simpleDatabase.members where userId=? and userPw=?";
+            pstm = conn.prepareStatement(query);
+
+            pstm.setString(1, userId);
+            pstm.setString(2, userPw);
+
+            result = pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            cleanUp();
+        }
+
+        return result;
+    }
+
+    public MemberDTO memberView(String userId) {
+        MemberDTO member = null;
+
+        try {
+            conn = DBConnect.getConnection();
+            String query = "select * from simpleDatabase.members where userId = ?";
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, userId);
+
+            rs = pstm.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    String userId1 = rs.getString(1);
+                    String userPw = rs.getString(2);
+                    String userEmail = rs.getString(3);
+
+                    member = new MemberDTO(userId1, userPw, userEmail);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            cleanUp();
+        }
+        return member;
+    }
+
+    private static class singleton {
+        private static final MemberDAO instance = new MemberDAO();
+    }
+
 }

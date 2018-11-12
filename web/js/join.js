@@ -46,6 +46,23 @@ function userIdCheck() {
     }
 }
 
+// check if the two password field values match
+function checkPwFunc() {
+    let userPw = document.getElementById("userPw");
+    let userPwCheck = document.getElementById("userPwCheck");
+    let pwCheck = document.getElementById("pwCheck");
+
+    if (userPw.value !== userPwCheck.value) {
+        errorMessage.style.backgroundColor = "red";
+        errorMessage.innerHTML = "password doesn't match";
+        return false;
+    } else {
+        errorMessage.innerHTML = "password matches!";
+        errorMessage.style.backgroundColor = "cadetblue";
+        return true;
+    }
+}
+
 // check id in database if theres any duplicates
 function checkID() {
     let userId = document.getElementById("userId");
@@ -81,7 +98,7 @@ function joinOk() {
     if (isUserIdEmpty() === true) {
         // if userId have not been checked
         if (checkIdConfirmation.value !== "checked") {
-            errorMessage.style.display = "flex";
+            errorMessage.style.backgroundColor = "red";
             errorMessage.innerHTML = "please make sure you check the id";
 
             userId.focus();

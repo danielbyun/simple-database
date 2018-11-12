@@ -25,3 +25,5 @@ out/
 *.iml
 *.map
 *.jar
+web/css/header.css.map
+*.map

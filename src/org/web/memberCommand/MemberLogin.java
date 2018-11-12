@@ -26,7 +26,7 @@ public class MemberLogin implements MemberCommand {
         if (result == 1) {
             System.out.println("logging in successful, redirect user to content page");
             session.setAttribute("sessionId", userId);
-            session.setMaxInactiveInterval(60 * 3);
+            session.setMaxInactiveInterval(60 * 10);
 
         } else {
             System.out.println("logging in failed");

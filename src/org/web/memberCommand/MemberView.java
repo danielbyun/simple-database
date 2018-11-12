@@ -1,37 +1,31 @@
 package org.web.memberCommand;
 
 import org.web.memberDAO.MemberDAO;
+import org.web.memberDTO.MemberDTO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-public class MemberDelete implements MemberCommand {
+public class MemberView implements MemberCommand {
     @Override
     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("member delete requested");
+        System.out.println("member view command requested");
 
         String userId = req.getParameter("userId");
-        String userPw = req.getParameter("userPw");
-
         MemberDAO dao = MemberDAO.getInstance();
-        int result = dao.memberDelete(userId, userPw);
-
-        HttpSession session = req.getSession();
-        PrintWriter out = resp.getWriter();
+        MemberDTO member = dao.memberView(userId);
 
         String url = "";
 
-        if (result == 1) {
-            session.invalidate();
-            System.out.println("deleted successfully");
+        if (member != null) {
+            req.setAttribute("member", member);
+            url = "/profile.do";
         } else {
             System.out.println("something went wrong");
+            url = "/profile.do";
         }
-        out.write(result + "");
-        out.close();
+        req.setAttribute("url", url);
     }
 }

@@ -1,14 +1,14 @@
-// login Form
-let loginForm = document.getElementById("loginForm");
+// delete form
+let deleteForm = document.getElementById("deleteForm");
 
 // error message
 let errorMessage = document.getElementById("errorMsg");
 
-// login Btn
-let loginBtn = document.getElementById("loginBtn");
-loginBtn.addEventListener("click", loginOk);
+// delete btn
+let deleteBtn = document.getElementById("deleteBtn");
+deleteBtn.addEventListener("click", deleteOk);
 
-function loginOk() {
+function deleteOk() {
     let userId = document.getElementById("userId");
     let userPw = document.getElementById("userPw");
 
@@ -21,27 +21,24 @@ function loginOk() {
     }
     if (userPw.value === null || userPw.value.trim() === "") {
         errorMessage.style.display = "flex";
-        errorMessage.innerHTML = "please put in your pw";
+        errorMessage.innerHTML = "please put in your password";
 
         userPw.focus();
-
         return false;
     }
 
-    // ajax (fetch API)
-    let data = `userId=${encodeURIComponent(userId.value)}&userPw=${encodeURIComponent(userPw.value)}`;
-    let url = "login.mo";
+    // fetch data
+    let data = `userId=${encodeURIComponent(userId.value)}&userPW=${encodeURIComponent(userPw.value)}`;
+    let url = "deleteProfile.mo";
 
-    fetch(`${url}?${data}`)
+    fetch (`${url}?${data}`)
         .then((resp) => resp.text())
         .then((data) => {
             // successful
             if (data == 1) {
-                location.href = "/boardList.do";
+                location.href = "/profileDeleted.do";
             } else {
-                errorMessage.style.display = "flex";
-                errorMessage.innerHTML = "something went wrong, please try again";
-                userId.focus();
+                location.href = "/profile.do";
             }
         })
 }

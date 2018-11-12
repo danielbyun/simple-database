@@ -25,11 +25,11 @@ public class MemberDTO {
         this.userPw = userPw;
     }
 
-    public String getDisplayName() {
+    public String getUserEmail() {
         return userEmail;
     }
 
-    public void setDisplayName(String userEmail) {
+    public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
 }

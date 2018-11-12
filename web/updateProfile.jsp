@@ -13,19 +13,18 @@
 %>
 <html>
     <head>
-        <title>view my profile</title>
+        <title> update profile</title>
         <meta charset="utf-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equipv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/profile.css">
+        <meta http -equipv="X-UA-Compatible" content="ie=edge">
     </head>
     <body>
         <jsp:include page="header.jsp"/>
         <main>
             <section>
                 <ul>
-                    <h1>your profile</h1>
+                    <h1> your profile</h1>
                     <li>
                         <input type="text" name="userId" id="userId" value="<%= member.getUserId() %>" disabled>
                     </li>
@@ -33,7 +32,7 @@
                         <input type="email" name="userEmail" id="userEmail" value="<%= member.getUserEmail() %>" disabled>
                     </li>
                     <li>
-                        <input type="text" name="userPw" id="userPw" value="click here to reveal" readonly>
+                        <input type="password" name="userPw" id="userPw" placeholder="click to reveal" disabled>
                     </li>
                     <li><a href="updateProfile.do">click here to update your profile</a></li>
                     <li><a href="deleteProfile.do">click here to delete your profile</a></li>
@@ -43,15 +42,9 @@
         <jsp:include page="footer.jsp"/>
         <script>
             let userPwToggle = document.getElementById("userPw");
-            userPwToggle.addEventListener("click", showPassword);
-
-            function showPassword() {
-                if (userPwToggle.value = "click here to reveal") {
-                    userPwToggle.value = <%= member.getUserPw() %>;
-                } else {
-                    userPwToggle.value = "click here to reveal";
-                }
-            }
+            userPwToggle.addEventListener("click", function(){
+                alert("aye");
+            })
         </script>
     </body>
 </html>

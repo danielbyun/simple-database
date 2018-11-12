@@ -37,37 +37,43 @@ public class MemberController extends HttpServlet {
             action = new IdCheck();
             action.executeQueryCommand(req, resp);
 
-            url = (String)req.getAttribute("url");
+            url = (String) req.getAttribute("url");
         } else if (basicURL.equals("/join.mo")) {
             System.out.println("join requested");
             action = new MemberJoin();
             action.executeQueryCommand(req, resp);
 
-            url = (String)req.getAttribute("url");
+            url = (String) req.getAttribute("url");
         } else if (basicURL.equals("/login.mo")) {
             System.out.println("login requested");
             action = new MemberLogin();
             action.executeQueryCommand(req, resp);
 
-            url = (String)req.getAttribute("url");
+            url = (String) req.getAttribute("url");
         } else if (basicURL.equals("/logout.mo")) {
             System.out.println("logout requested");
             action = new MemberLogout();
             action.executeQueryCommand(req, resp);
 
-            url = (String)req.getAttribute("url");
+            url = (String) req.getAttribute("url");
+        } else if (basicURL.equals("/viewProfile.mo")) {
+            System.out.println("listing members' credentials");
+            action = new MemberView();
+            action.executeQueryCommand(req, resp);
+
+            url = (String) req.getAttribute("url");
         } else if (basicURL.equals("/updateProfile.mo")) {
             System.out.println("update profile credentials");
             action = new MemberUpdate();
             action.executeQueryCommand(req, resp);
 
-            url = (String)req.getAttribute("url");
+            url = (String) req.getAttribute("url");
         } else if (basicURL.equals("/deleteProfile.mo")) {
             System.out.println("delete profile");
             action = new MemberDelete();
             action.executeQueryCommand(req, resp);
 
-            url = (String)req.getAttribute("url");
+            url = (String) req.getAttribute("url");
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);
