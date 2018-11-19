@@ -33,12 +33,7 @@ public class Controller extends HttpServlet {
         String url = "";
 
         // basically the index page
-        if (basicURL.equals("/boardList.do")) {
-            System.out.println("redirecting user to boardList page");
-            url = "/boardList.jsp";
-
-            // member controllers
-        } else if (basicURL.equals("/join.do")) {
+        if (basicURL.equals("/join.do")) {
             System.out.println("redirecting user to signup page");
             url = "/join.jsp";
         } else if (basicURL.equals("/login.do")) {

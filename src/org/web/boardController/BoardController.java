@@ -1,6 +1,7 @@
 package org.web.boardController;
 
 import org.web.boardCommand.BoardCommand;
+import org.web.boardCommand.BoardList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,8 +33,11 @@ public class BoardController  extends HttpServlet {
         String url = "";
         BoardCommand action = null;
 
-        if (basicurl.equals("")) {
-
+        if (basicurl.equals("/boardList.bo")) {
+            System.out.println("board list");
+            action = new BoardList();
+            action.executeQueryCommand(req, resp);
+            url = (String) req.getAttribute("url");
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);

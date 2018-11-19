@@ -3,10 +3,7 @@ package org.web.boardDAO;
 import org.web.boardDTO.BoardDTO;
 import org.web.dbConnect.DBConnect;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class BoardDAO {
@@ -30,6 +27,26 @@ public class BoardDAO {
             conn = DBConnect.getConnection();
             String query = "select * from simpleDatabase.posts";
             pstm = conn.prepareStatement(query);
+
+            rs = pstm.executeQuery();
+
+            if (rs != null) {
+                while(rs.next()) {
+                    int mId = rs.getInt(1);
+                    int mGroup = rs.getInt(2);
+                    int mIndent = rs.getInt(3);
+                    int step = rs.getInt(4);
+                    int hit = rs.getInt(5);
+                    String userName = rs.getString(6);
+                    String title = rs.getString(7);
+                    String content = rs.getString(8);
+                    Timestamp date = rs.getTimestamp(9);
+
+                    BoardDTO dto = new BoardDTO(mId, mGroup, mIndent, step, hit, userName, title, content, date);
+                    lists.add(dto);
+
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

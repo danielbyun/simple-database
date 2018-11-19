@@ -1,4 +1,9 @@
+<%@ page import="org.web.boardDTO.BoardDTO" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    ArrayList<BoardDTO> lists = (ArrayList<BoardDTO>) request.getAttribute("lists");
+%>
 <html>
     <head>
         <title>board list</title>
@@ -11,7 +16,21 @@
         <jsp:include page="header.jsp"/>
         <main>
             <section>
-
+                <h1>yoyoyoy</h1><br><br><br><br><br><br>
+                <h1>yoyoyoy</h1><br><br><br><br><br><br>
+                <h1>yoyoyoy</h1><br><br><br><br><br><br>
+                <h1>yoyoyoy</h1><br><br><br><br><br><br>
+                <h1>yoyoyoy</h1><br><br><br><br><br><br>
+                <h1>yoyoyoy</h1><br><br><br><br><br><br>
+                <%
+                    for (BoardDTO dto : lists) {
+                %>
+                <%=
+                dto.getContent()
+                %>
+                <%
+                    }
+                %>
             </section>
         </main>
         <jsp:include page="footer.jsp"/>
