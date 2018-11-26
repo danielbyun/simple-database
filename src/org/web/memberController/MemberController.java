@@ -30,53 +30,65 @@ public class MemberController extends HttpServlet {
         String basicURL = URI.substring(path.length());
 
         String url = "";
-        MemberCommand action = null;
+        MemberCommand action;
+        RequestDispatcher requestDispatcher;
 
-        if (basicURL.equals("/idCheck.mo")) {
-            System.out.println("checking id (if it's taken or not)");
-            action = new IdCheck();
-            action.executeQueryCommand(req, resp);
+        switch (basicURL) {
+            case "/idCheck.mo":
+                action = new IdCheck();
+                action.executeQueryCommand(req, resp);
 
-            url = (String) req.getAttribute("url");
-        } else if (basicURL.equals("/join.mo")) {
-            System.out.println("join requested");
-            action = new MemberJoin();
-            action.executeQueryCommand(req, resp);
+                break;
+            case "/join.mo":
+                action = new MemberJoin();
+                action.executeQueryCommand(req, resp);
 
-            url = (String) req.getAttribute("url");
-        } else if (basicURL.equals("/login.mo")) {
-            System.out.println("login requested");
-            action = new MemberLogin();
-            action.executeQueryCommand(req, resp);
+                url = (String) req.getAttribute("url");
+                requestDispatcher = req.getRequestDispatcher(url);
+                requestDispatcher.forward(req, resp);
 
-            url = (String) req.getAttribute("url");
-        } else if (basicURL.equals("/logout.mo")) {
-            System.out.println("logout requested");
-            action = new MemberLogout();
-            action.executeQueryCommand(req, resp);
+                break;
+            case "/login.mo":
+                action = new MemberLogin();
+                action.executeQueryCommand(req, resp);
 
-            url = (String) req.getAttribute("url");
-        } else if (basicURL.equals("/viewProfile.mo")) {
-            System.out.println("listing members' credentials");
-            action = new MemberView();
-            action.executeQueryCommand(req, resp);
+                break;
+            case "/logout.mo":
+                action = new MemberLogout();
+                action.executeQueryCommand(req, resp);
 
-            url = (String) req.getAttribute("url");
-        } else if (basicURL.equals("/updateProfile.mo")) {
-            System.out.println("update profile credentials");
-            action = new MemberUpdate();
-            action.executeQueryCommand(req, resp);
+                url = (String) req.getAttribute("url");
+                requestDispatcher = req.getRequestDispatcher(url);
+                requestDispatcher.forward(req, resp);
 
-            url = (String) req.getAttribute("url");
-        } else if (basicURL.equals("/deleteProfile.mo")) {
-            System.out.println("delete profile");
-            action = new MemberDelete();
-            action.executeQueryCommand(req, resp);
+                break;
+            case "/viewProfile.mo":
+                action = new MemberView();
+                action.executeQueryCommand(req, resp);
 
-            url = (String) req.getAttribute("url");
+                url = (String) req.getAttribute("url");
+                requestDispatcher = req.getRequestDispatcher(url);
+                requestDispatcher.forward(req, resp);
+
+                break;
+            case "/updateProfile.mo":
+                action = new MemberUpdate();
+                action.executeQueryCommand(req, resp);
+
+                url = (String) req.getAttribute("url");
+                requestDispatcher = req.getRequestDispatcher(url);
+                requestDispatcher.forward(req, resp);
+
+                break;
+            case "/deleteProfile.mo":
+                action = new MemberDelete();
+                action.executeQueryCommand(req, resp);
+
+                url = (String) req.getAttribute("url");
+                requestDispatcher = req.getRequestDispatcher(url);
+                requestDispatcher.forward(req, resp);
+
+                break;
         }
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher(url);
-        dispatcher.forward(req, resp);
     }
 }

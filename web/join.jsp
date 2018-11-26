@@ -4,7 +4,6 @@
         <title>simple database</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equipv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/join.css">
     </head>

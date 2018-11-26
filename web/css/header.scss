@@ -1,17 +1,8 @@
 @import '../assets/_variables.scss';
 
 header {
-    section.s1 {
-        height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        h1 {
-            color: $lightGrey;
-        }
-    }
     nav {
-        height: 2rem;
+        height: 4rem;
         display: flex;
         background: $navOrange;
         flex-wrap: wrap;
@@ -24,6 +15,12 @@ header {
             li {
                 height: 100%;
                 width: 100%;
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 5em;
+                    border-radius: 50%;
+                }
                 a {
                     text-decoration: none;
                     color: $black;

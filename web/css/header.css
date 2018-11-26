@@ -1,12 +1,5 @@
-header section.s1 {
-  height: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  header section.s1 h1 {
-    color: #efefef; }
 header nav {
-  height: 2rem;
+  height: 4rem;
   display: flex;
   background: #FFCE85;
   flex-wrap: wrap; }
@@ -18,7 +11,12 @@ header nav {
     height: 100%; }
     header nav ul li {
       height: 100%;
-      width: 100%; }
+      width: 100%;
+      display: flex;
+      justify-content: center; }
+      header nav ul li img {
+        width: 5em;
+        border-radius: 50%; }
       header nav ul li a {
         text-decoration: none;
         color: black;

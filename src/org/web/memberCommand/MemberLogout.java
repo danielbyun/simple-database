@@ -13,17 +13,14 @@ public class MemberLogout implements MemberCommand {
         System.out.println("logging the user out");
 
         HttpSession session = req.getSession();
-        String url = "";
+        String url;
 
         if (session != null) {
             // terminate session
             session.invalidate();
-            System.out.println("successfully logged out");
 
             url = "/boardList.do";
         } else {
-            System.out.println("failed to log out");
-
             url = "/logout.mo";
         }
 

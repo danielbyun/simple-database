@@ -6,4 +6,32 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    .boardList {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .boards {
+            flex: 0 0 80%;
+            a {
+                text-decoration: none;
+            }
+            .board {
+                margin: 1rem;
+                border-radius: 5px;
+                flex: 0 0 100%;
+                background-color: rgb(26, 26, 27);
+                color: rgb(215, 218, 220);
+                padding: 1rem;
+                small {
+                    color: rgb(129, 131, 132);
+                }
+                h1 {
+                    padding: 0.5rem 0;
+                }
+                p {
+                    padding-top: 0.5rem;
+                }
+            }
+        }
+    }
 }

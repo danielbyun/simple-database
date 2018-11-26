@@ -1,6 +1,3 @@
-// delete form
-let deleteForm = document.getElementById("deleteForm");
-
 // error message
 let errorMessage = document.getElementById("errorMsg");
 
@@ -28,7 +25,7 @@ function deleteOk() {
     }
 
     // fetch data
-    let data = `userId=${encodeURIComponent(userId.value)}&userPW=${encodeURIComponent(userPw.value)}`;
+    let data = `userId=${encodeURIComponent(userId.value)}&userPw=${encodeURIComponent(userPw.value)}`;
     let url = "deleteProfile.mo";
 
     fetch (`${url}?${data}`)
@@ -36,7 +33,7 @@ function deleteOk() {
         .then((data) => {
             // successful
             if (data == 1) {
-                location.href = "/profileDeleted.do";
+                location.href = "/boardList.do";
             } else {
                 location.href = "/profile.do";
             }

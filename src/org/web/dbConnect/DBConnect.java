@@ -15,17 +15,13 @@ public class DBConnect {
 //        String hostPw = "12345678";
 //        String driver = "com.mysql.cj.jdbc.Driver";
 
-        DataSource dataSource;
-
         try {
 //            Class.forName(driver);
 //            conn = DriverManager.getConnection(url, hostId, hostPw);
             Context initContext = new InitialContext();
-            Context envContext = (Context)initContext.lookup("java:/comp/env");
-            DataSource ds = (DataSource)envContext.lookup("jdbc/db");
+            Context envContext = (Context) initContext.lookup("java:/comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/db");
             conn = ds.getConnection();
-
-            System.out.println("db connected");
         } catch (Exception e) {
             e.printStackTrace();
         }

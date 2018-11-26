@@ -1,21 +1,18 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    // if no one is logged in
-    if (session.getAttribute("sessionId") == null) {
-%>
-<script>
-    alert("please log in to view this page!");
-    location.href = "/index.jsp";
-</script>
-<%
-} else {
-%>
+<c:choose>
+    <c:when test="${sessionScope.sessionId == null}">
+        <script>
+            alert("please log in to view this page!");
+        </script>
+        <c:redirect url="index.jsp"/>
+    </c:when>
+</c:choose>
 <html>
     <head>
         <title>delete page</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equipv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/deleteProfile.css">
     </head>
@@ -44,6 +41,3 @@
         <script src="js/delete.js"></script>
     </body>
 </html>
-<%
-    }
-%>

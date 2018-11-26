@@ -37,7 +37,7 @@ function loginOk() {
         .then((data) => {
             // successful
             if (data == 1) {
-                location.href = "/boardList.do";
+                location.href = "boardList.bo";
             } else {
                 errorMessage.style.display = "flex";
                 errorMessage.innerHTML = "something went wrong, please try again";

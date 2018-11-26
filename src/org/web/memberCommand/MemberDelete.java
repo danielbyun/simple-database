@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 public class MemberDelete implements MemberCommand {
     @Override
     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("member delete requested");
+        String id = req.getParameter("id");
 
         String userId = req.getParameter("userId");
         String userPw = req.getParameter("userPw");
@@ -23,14 +23,10 @@ public class MemberDelete implements MemberCommand {
         HttpSession session = req.getSession();
         PrintWriter out = resp.getWriter();
 
-        String url = "";
-
         if (result == 1) {
             session.invalidate();
-            System.out.println("deleted successfully");
-        } else {
-            System.out.println("something went wrong");
         }
+
         out.write(result + "");
         out.close();
     }

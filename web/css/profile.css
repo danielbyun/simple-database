@@ -14,65 +14,100 @@ body {
       top: 5rem;
       display: flex;
       justify-content: center; }
-      body main section ul {
-        background: #efefef;
-        border-radius: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        flex: 0 0 600px;
-        padding: 1rem; }
-        body main section ul h1 {
-          flex: 0 0 100%;
-          text-align: center; }
-        body main section ul li {
-          flex: 0 0 100%;
+      body main section #updateForm {
+        flex: 0 0 80%; }
+        body main section #updateForm #errorMsg {
+          flex: 0 0 600px;
+          border-radius: 10px;
+          background-color: red;
+          color: #efefef;
+          padding: 1rem;
+          margin-bottom: 10px;
+          display: none; }
+        body main section #updateForm ul {
+          background: #efefef;
+          border-radius: 10px;
           display: flex;
           flex-wrap: wrap;
-          margin: 1rem auto; }
-          body main section ul li input {
-            padding: 1rem;
-            border: none;
-            outline: none;
-            border-radius: 10px; }
-            body main section ul li input:not([type=button]) {
-              background: transparent;
-              border-bottom: 2px solid lightslategrey;
-              border-radius: 0 0 10px 0; }
-          body main section ul li:first-of-type {
-            justify-content: space-around; }
-            body main section ul li:first-of-type input:first-of-type {
-              flex: 0 0 50%; }
-          body main section ul li:nth-of-type(2) {
-            justify-content: space-around; }
-            body main section ul li:nth-of-type(2) input:first-of-type, body main section ul li:nth-of-type(2) input:nth-of-type(2) {
-              flex: 0 0 50%; }
-          body main section ul li:nth-of-type(3) {
-            justify-content: center; }
-            body main section ul li:nth-of-type(3) input {
-              flex: 0 0 50%; }
-          body main section ul li:nth-of-type(4) {
-            justify-content: center; }
-            body main section ul li:nth-of-type(4) a {
-              text-decoration: none;
-              color: black;
+          flex: 0 0 600px;
+          padding: 1rem; }
+          body main section #updateForm ul h1 {
+            flex: 0 0 100%;
+            text-align: center; }
+          body main section #updateForm ul li {
+            flex: 0 0 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1rem auto;
+            /* userId & checkId*/
+            /* email */
+            /* password fields */
+            /* buttons */ }
+            body main section #updateForm ul li input {
               padding: 1rem;
-              border: 1px solid pink;
-              border-radius: 10px;
-              transition: all 0.2s ease-in-out; }
-              body main section ul li:nth-of-type(4) a:hover {
-                color: #efefef;
-                background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); }
-          body main section ul li:last-of-type {
-            justify-content: center; }
-            body main section ul li:last-of-type a {
-              text-decoration: none;
-              color: black;
-              padding: 1rem;
-              border: 1px solid pink;
-              border-radius: 10px;
-              transition: all 0.2s ease-in-out; }
-              body main section ul li:last-of-type a:hover {
-                color: #efefef;
-                background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); }
+              border: none;
+              outline: none;
+              border-radius: 10px; }
+              body main section #updateForm ul li input:not([type=button]) {
+                background: transparent;
+                border-bottom: 2px solid lightslategrey;
+                border-radius: 0 0 10px 0; }
+            body main section #updateForm ul li:nth-of-type(2) {
+              justify-content: space-around; }
+              body main section #updateForm ul li:nth-of-type(2) input {
+                /* userId */ }
+                body main section #updateForm ul li:nth-of-type(2) input:first-of-type {
+                  flex: 0 0 77%;
+                  border: 1px solid red; }
+                body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(2) {
+                  flex: 0 0 77%; }
+                body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(3) {
+                  flex: 0 0 10%;
+                  transition: all 0.2s ease-in-out;
+                  outline: 0;
+                  cursor: pointer; }
+                  body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(3):hover {
+                    color: white;
+                    background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); }
+                  body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(3):focus {
+                    box-shadow: 0 0 10px pink; }
+            body main section #updateForm ul li:nth-of-type(3) {
+              justify-content: space-around; }
+              body main section #updateForm ul li:nth-of-type(3) input {
+                flex: 0 0 94%; }
+            body main section #updateForm ul li:nth-of-type(4) {
+              justify-content: space-evenly; }
+              body main section #updateForm ul li:nth-of-type(4) input:first-of-type {
+                flex: 0 0 46%; }
+              body main section #updateForm ul li:nth-of-type(4) input:nth-of-type(2) {
+                flex: 0 0 46%; }
+            body main section #updateForm ul li:nth-of-type(5) {
+              justify-content: center; }
+              body main section #updateForm ul li:nth-of-type(5) input[type=button],
+              body main section #updateForm ul li:nth-of-type(5) a {
+                text-decoration: none;
+                color: black;
+                padding: 1rem;
+                border: 1px solid pink;
+                border-radius: 10px;
+                transition: all 0.2s ease-in-out; }
+                body main section #updateForm ul li:nth-of-type(5) input[type=button]:hover,
+                body main section #updateForm ul li:nth-of-type(5) a:hover {
+                  color: #efefef;
+                  background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); }
+            body main section #updateForm ul li:last-of-type {
+              justify-content: center; }
+              body main section #updateForm ul li:last-of-type input[type=button],
+              body main section #updateForm ul li:last-of-type a {
+                text-decoration: none;
+                color: black;
+                padding: 1rem;
+                border: 1px solid pink;
+                border-radius: 10px;
+                transition: all 0.2s ease-in-out; }
+                body main section #updateForm ul li:last-of-type input[type=button]:hover,
+                body main section #updateForm ul li:last-of-type a:hover {
+                  color: #efefef;
+                  background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); }
 
 /*# sourceMappingURL=profile.css.map */

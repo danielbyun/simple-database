@@ -50,7 +50,6 @@ function userIdCheck() {
 function checkPwFunc() {
     let userPw = document.getElementById("userPw");
     let userPwCheck = document.getElementById("userPwCheck");
-    let pwCheck = document.getElementById("pwCheck");
 
     if (userPw.value !== userPwCheck.value) {
         errorMessage.style.backgroundColor = "red";

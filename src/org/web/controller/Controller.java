@@ -32,25 +32,32 @@ public class Controller extends HttpServlet {
 
         String url = "";
 
-        // basically the index page
-        if (basicURL.equals("/join.do")) {
-            System.out.println("redirecting user to signup page");
-            url = "/join.jsp";
-        } else if (basicURL.equals("/login.do")) {
-            System.out.println("redirecting user to login page");
-            url = "/login.jsp";
-        } else if (basicURL.equals("/profile.do")) {
-            System.out.println("redirecting user to view member's profile page");
-            url = "/profile.jsp";
-        } else if (basicURL.equals("/updateProfile.do")) {
-            System.out.println("redirecting user to update page");
-            url = "/updateProfile.jsp";
-        } else if (basicURL.equals("/deleteProfile.do")) {
-            System.out.println("delete profile");
-            url = "/deleteProfile.jsp";
-        } else if (basicURL.equals("/profileDeleted.do")) {
-            System.out.println("profile deleted confirmation");
-            url = "/profileDeleted.jsp";
+        // redirect links
+        switch (basicURL) {
+            case "/join.do":
+                url = "/join.jsp";
+
+                break;
+            case "/login.do":
+                url = "/login.jsp";
+
+                break;
+            case "/profile.do":
+                url = "/profile.jsp";
+
+                break;
+            case "/updateProfile.do":
+                url = "/updateProfile.jsp";
+
+                break;
+            case "/deleteProfile.do":
+                url = "/deleteProfile.jsp";
+
+                break;
+            case "/profileDeleted.do":
+                url = "/profileDeleted.jsp";
+
+                break;
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);

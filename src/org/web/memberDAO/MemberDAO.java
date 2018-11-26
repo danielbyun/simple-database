@@ -3,6 +3,7 @@ package org.web.memberDAO;
 import org.web.dbConnect.DBConnect;
 import org.web.memberDTO.MemberDTO;
 
+import java.lang.reflect.Member;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,7 +22,7 @@ public class MemberDAO {
         return singleton.instance;
     }
 
-    // i put the last method in a method to make the code DRY
+//    // i put the last method in a method to make the code DRY
     private void cleanUp() {
         try {
             if (conn != null) conn.close();
@@ -64,7 +65,7 @@ public class MemberDAO {
 
         try {
             conn = DBConnect.getConnection();
-            String query = "insert into simpleDatabase.members (userId, userPw, userEmail) values (?, ?, ?)";
+            String query = "insert into simpleDatabase.members (id, userId, userPw, userEmail) values (null, ?, ?, ?)";
             pstm = conn.prepareStatement(query);
 
             pstm.setString(1, userId);
@@ -81,6 +82,36 @@ public class MemberDAO {
         return result;
     }
 
+    public MemberDTO memberLoginAndRetrieveAll(String userId, String userPw) {
+        MemberDTO member = null;
+
+        try {
+            conn = DBConnect.getConnection();
+            String query = "select * from simpleDatabase.members where userId=? and userPw=?";
+            pstm = conn.prepareStatement(query);
+            pstm.setString(1, userId);
+            pstm.setString(2, userPw);
+
+            rs = pstm.executeQuery();
+
+            if (rs != null) {
+                while (rs.next()) {
+                    int memberId = rs.getInt(1);
+                    String userId1 = rs.getString(2);
+                    String userPw1 = rs.getString(3);
+                    String userEmail = rs.getString(4);
+
+                    member = new MemberDTO(memberId, userId1, userPw1, userEmail);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            cleanUp();
+        }
+        return member;
+    }
+
     public int memberLogin(String userId, String userPw) {
         int result = 0;
 
@@ -93,7 +124,6 @@ public class MemberDAO {
             pstm.setString(2, userPw);
 
             rs = pstm.executeQuery();
-
             if (rs != null) {
                 while (rs.next()) {
                     result = rs.getInt(1);
@@ -129,24 +159,26 @@ public class MemberDAO {
         return result;
     }
 
-    public MemberDTO memberView(String userId) {
+    public MemberDTO memberView(String memberId) {
         MemberDTO member = null;
 
         try {
             conn = DBConnect.getConnection();
-            String query = "select * from simpleDatabase.members where userId = ?";
+            // String query = "select * from simpleDatabase.members where memberId=?";
+            String query = "select * from simpleDatabase.members where id = ?";
             pstm = conn.prepareStatement(query);
-            pstm.setString(1, userId);
+            pstm.setString(1, memberId);
 
             rs = pstm.executeQuery();
 
             if (rs != null) {
                 while (rs.next()) {
-                    String userId1 = rs.getString(1);
-                    String userPw = rs.getString(2);
-                    String userEmail = rs.getString(3);
+                    int memberId1 = rs.getInt(1);
+                    String userId = rs.getString(2);
+                    String userPw = rs.getString(3);
+                    String userEmail = rs.getString(4);
 
-                    member = new MemberDTO(userId1, userPw, userEmail);
+                    member = new MemberDTO(memberId1, userId, userPw, userEmail);
                 }
             }
         } catch (SQLException e) {
@@ -155,6 +187,29 @@ public class MemberDAO {
             cleanUp();
         }
         return member;
+    }
+
+    public int memberUpdate(int id, String userId, String userPw, String userEmail) {
+        int result = 0;
+
+        try {
+            conn = DBConnect.getConnection();
+            String query = "update simpleDatabase.members set userId=?, userPw=?, userEmail=? where id=?";
+            pstm = conn.prepareStatement(query);
+
+            pstm.setString(1, userId);
+            pstm.setString(2, userPw);
+            pstm.setString(3, userEmail);
+            pstm.setInt(4, id);
+
+            result = pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            cleanUp();
+        }
+
+        return result;
     }
 
     private static class singleton {

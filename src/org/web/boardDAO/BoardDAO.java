@@ -7,10 +7,25 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class BoardDAO {
-    private CleanUpGang clean = CleanUpGang.getCleaned();
     private Connection conn = null;
     private PreparedStatement pstm = null;
     private ResultSet rs = null;
+
+    private void cleanUp() {
+        try {
+            if (conn != null) {
+                conn.close();
+            }
+            if (pstm != null) {
+                pstm.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     private BoardDAO() {
     }
@@ -50,29 +65,29 @@ public class BoardDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            clean.cleanGang();
+            cleanUp();
         }
 
         return lists;
     }
 
-    public int write(String nickname, String title, String memo) {
+    public int write(String userId, String title, String content) {
         int result = 0;
 
         try {
             conn = DBConnect.getConnection();
-            String query = "insert into webprojects.paginationBoard1112 (mGroup, step, hit, indent, nickname, title, memo, date) values ((select case count(*) when 0 then 1 else max(mGroup) + 1 end from webprojects.paginationBoard1112 b1), 0, 0, 0, ?, ?, ?, now())";
+            String query = "insert into simpleDatabase.posts(mGroup, step, hit, indent, userId, title, content, date) values ((select case count(*) when 0 then 1 else max(mGroup) + 1 end from simpleDatabase.posts b1), 0, 0, 0, ?, ?, ?, now())";
             pstm = conn.prepareStatement(query);
 
-            pstm.setString(1, nickname);
+            pstm.setString(1, userId);
             pstm.setString(2, title);
-            pstm.setString(3, memo);
+            pstm.setString(3, content);
 
             result = pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            clean.cleanGang();
+            cleanUp();
         }
 
         return result;

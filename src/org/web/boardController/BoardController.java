@@ -1,7 +1,6 @@
 package org.web.boardController;
 
-import org.web.boardCommand.BoardCommand;
-import org.web.boardCommand.BoardList;
+import org.web.boardCommand.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("*.bo")
-public class BoardController  extends HttpServlet {
+public class BoardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doService(req, resp);
@@ -31,13 +30,30 @@ public class BoardController  extends HttpServlet {
         String basicurl = uri.substring(path.length());
 
         String url = "";
-        BoardCommand action = null;
+        BoardCommand action;
 
-        if (basicurl.equals("/boardList.bo")) {
-            System.out.println("board list");
-            action = new BoardList();
-            action.executeQueryCommand(req, resp);
-            url = (String) req.getAttribute("url");
+        switch (basicurl) {
+            case "/boardList.bo":
+                action = new BoardList();
+                action.executeQueryCommand(req, resp);
+                url = (String) req.getAttribute("url");
+
+                break;
+            case "/boardUpdate.bo":
+                action = new BoardUpdate();
+                action.executeQueryCommand(req, resp);
+
+                break;
+            case "/boardWrite.bo":
+                action = new BoardWrite();
+                action.executeQueryCommand(req, resp);
+
+                break;
+            case "/boardView.bo":
+                action = new BoardView();
+                action.executeQueryCommand(req, resp);
+
+                break;
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);

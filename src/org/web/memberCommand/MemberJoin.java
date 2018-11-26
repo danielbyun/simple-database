@@ -22,11 +22,8 @@ public class MemberJoin implements MemberCommand {
         String url = "";
 
         if (result == 1) {
-            System.out.println("registration successful, redirect user to login page");
-
             url = "/login.jsp";
         } else {
-            System.out.println("registration failed, back to signup page");
             url = "/join.jsp";
         }
 

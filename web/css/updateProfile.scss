@@ -15,10 +15,13 @@ body {
             position: relative;
             top: 5rem;
             display: flex;
-            justify-content: center;
-            #updateForm {
-                flex: 0 0 80%;
-                #errorMsg {
+            form {
+                border-radius: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 0 auto;
+                span {
                     flex: 0 0 600px;
                     border-radius: 10px;
                     background-color: $error;
@@ -34,10 +37,6 @@ body {
                     flex-wrap: wrap;
                     flex: 0 0 600px;
                     padding: 1rem;
-                    h1 {
-                        flex: 0 0 100%;
-                        text-align: center;
-                    }
                     li {
                         flex: 0 0 100%;
                         display: flex;
@@ -52,21 +51,17 @@ body {
                                 background: transparent;
                                 border-bottom: 2px solid lightslategrey;
                                 border-radius: 0 0 10px 0;
+
                             }
                         }
-                        /* userId & checkId*/
-                        &:nth-of-type(2) {
+                        &:first-of-type {
                             justify-content: space-around;
                             input {
                                 &:first-of-type {
                                     flex: 0 0 77%;
-                                    border: 1px solid red;
                                 }
-                                /* userId */
+                                /* check id button */
                                 &:nth-of-type(2) {
-                                    flex: 0 0 77%;
-                                }
-                                &:nth-of-type(3) {
                                     flex: 0 0 10%;
                                     transition: all 0.2s ease-in-out;
                                     outline: 0;
@@ -83,60 +78,33 @@ body {
                                 }
                             }
                         }
-                        /* email */
-                        &:nth-of-type(3) {
+                        &:nth-of-type(2) {
                             justify-content: space-around;
                             input {
                                 flex: 0 0 94%;
-
                             }
                         }
-                        /* password fields */
-                        &:nth-of-type(4) {
+                        &:nth-of-type(3) {
                             justify-content: space-evenly;
                             input {
-                                &:first-of-type {
-                                    flex: 0 0 46%;
-                                }
-                                &:nth-of-type(2) {
-                                    flex: 0 0 46%;
-                                }
+                                flex: 0 0 46%;
                             }
                         }
-                        /* buttons */
-                        &:nth-of-type(5) {
-                            justify-content: center;
-                            input[type=button],
-                            a {
-                                text-decoration: none;
-                                color: $black;
-                                padding: 1rem;
-                                border: 1px solid $pink;
-                                border-radius: 10px;
-                                transition: all 0.2s ease-in-out;
-                                &:hover {
-                                    color: $lightGrey;
-                                    background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
-                                    linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
-                                    linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
-                                }
-                            }
-                        }
+                        /* join btn */
                         &:last-of-type {
                             justify-content: center;
-                            input[type=button],
-                            a {
-                                text-decoration: none;
-                                color: $black;
-                                padding: 1rem;
-                                border: 1px solid $pink;
-                                border-radius: 10px;
+                            input {
+                                flex: 0 0 20%;
                                 transition: all 0.2s ease-in-out;
+                                cursor: pointer;
                                 &:hover {
-                                    color: $lightGrey;
+                                    color: white;
                                     background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
                                     linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
                                     linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+                                }
+                                &:focus {
+                                    box-shadow: 0 0 10px $pink;
                                 }
                             }
                         }
@@ -146,3 +114,4 @@ body {
         }
     }
 }
+

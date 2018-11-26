@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="css/footer.css">
 <footer>
     <section>
-        <small>byunsta &copy; 2018</small>
+        <jsp:useBean id="current" class="java.util.Date"/>
+        <small>daniel byun &copy; ${(current.year) + 1900}</small>
     </section>
 </footer>

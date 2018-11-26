@@ -27,3 +27,5 @@ out/
 *.jar
 web/css/header.css.map
 *.map
+
+DBConnect.java

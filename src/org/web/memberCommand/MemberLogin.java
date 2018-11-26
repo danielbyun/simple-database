@@ -1,6 +1,7 @@
 package org.web.memberCommand;
 
 import org.web.memberDAO.MemberDAO;
+import org.web.memberDTO.MemberDTO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,24 +13,26 @@ import java.io.PrintWriter;
 public class MemberLogin implements MemberCommand {
     @Override
     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("logging the user in");
-
         String userId = req.getParameter("userId");
         String userPw = req.getParameter("userPw");
 
         MemberDAO dao = MemberDAO.getInstance();
-        int result = dao.memberLogin(userId, userPw);
-
-        HttpSession session = req.getSession();
         PrintWriter out = resp.getWriter();
 
-        if (result == 1) {
-            System.out.println("logging in successful, redirect user to content page");
-            session.setAttribute("sessionId", userId);
-            session.setMaxInactiveInterval(60 * 10);
+        HttpSession session = req.getSession(false);
+        if (session != null && !session.isNew()) {
+            session.invalidate();
+        }
 
-        } else {
-            System.out.println("logging in failed");
+        int result = dao.memberLogin(userId, userPw);
+        MemberDTO member = dao.memberLoginAndRetrieveAll(userId, userPw);
+
+        if (result == 1) {
+            session = req.getSession(true);
+
+            session.setAttribute("sessionId", member.getUserId());
+            session.setAttribute("member", member);
+            session.setMaxInactiveInterval(60 * 10);
         }
 
         out.write(result + "");

@@ -1,53 +1,48 @@
-<%@ page import="org.web.memberDTO.MemberDTO" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    MemberDTO member = (MemberDTO) request.getAttribute("member");
-    if (session.getAttribute("sessionId") == null) {
-%>
-<script>
-    alert("please log in to view this page!");
-</script>
-<%
-    response.sendRedirect("boardList.do");
-} else {
-%>
+<c:if test="${sessionScope.sessionId == null}">
+    <script>
+        alert("please log in to view this page!");
+    </script>
+    <c:redirect url="boardList.do"/>
+</c:if>
 <html>
     <head>
         <title> update profile</title>
         <meta charset="utf-8">
-
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/updateProfile.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http -equipv="X-UA-Compatible" content="ie=edge">
     </head>
     <body>
         <jsp:include page="header.jsp"/>
         <main>
             <section>
-                <ul>
-                    <h1> your profile</h1>
-                    <li>
-                        <input type="text" name="userId" id="userId" value="<%= member.getUserId() %>" disabled>
-                    </li>
-                    <li>
-                        <input type="email" name="userEmail" id="userEmail" value="<%= member.getUserEmail() %>" disabled>
-                    </li>
-                    <li>
-                        <input type="password" name="userPw" id="userPw" placeholder="click to reveal" disabled>
-                    </li>
-                    <li><a href="updateProfile.do">click here to update your profile</a></li>
-                    <li><a href="deleteProfile.do">click here to delete your profile</a></li>
-                </ul>
+                <form action="updateProfile.mo" method="post">
+                    <span id="errorMsg">error</span>
+                    <ul>
+                        <li>
+                            <input type="text" name="userId" id="userId" placeholder="your new id">
+                            <input type="hidden" name="" id=memberId" value="${member.memberId}">
+                            <input type="hidden" name="" value="${member.userId}">
+                            <input type="hidden" name="idCheckOk" id="idCheckOk" value="idNotChecked">
+                            <input type="button" value="check id" id="checkId">
+                        </li>
+                        <li>
+                            <input type="email" name="userEmail" id="userEmail" placeholder="your new email">
+                        </li>
+                        <li>
+                            <input type="password" name="userPw" id="userPw" placeholder="*****" onkeyup="checkPwFunc()">
+                            <input type="password" name="userPwCheck" id="userPwCheck" placeholder="*****" onkeyup="checkPwFunc()">
+                        </li>
+                        <li>
+                            <input type="button" value="update" id="updateBtn">
+                        </li>
+                    </ul>
+                </form>
             </section>
         </main>
+        <script src="js/update.js"></script>
         <jsp:include page="footer.jsp"/>
-        <script>
-            let userPwToggle = document.getElementById("userPw");
-            userPwToggle.addEventListener("click", function(){
-                alert("aye");
-            })
-        </script>
     </body>
 </html>
-<%
-    }
-%>

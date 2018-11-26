@@ -1,0 +1,66 @@
+body {
+  background: linear-gradient(to bottom, black 1%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 80%, black 99%), url("../img/team.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  body .writeSection {
+    display: flex;
+    flex-wrap: wrap; }
+    body .writeSection h1 {
+      flex: 0 0 70%;
+      margin: 0.5rem auto;
+      color: #d7dadc; }
+    body .writeSection #writeForm {
+      flex: 0 0 70%;
+      margin: 0 auto;
+      padding: 1rem;
+      background-color: #1a1a1b;
+      border-radius: 5px; }
+      body .writeSection #writeForm ul {
+        display: flex;
+        flex-wrap: wrap; }
+        body .writeSection #writeForm ul span {
+          flex: 0 0 600px;
+          border-radius: 10px;
+          background-color: red;
+          color: #efefef;
+          padding: 1rem;
+          margin-bottom: 10px;
+          display: none; }
+        body .writeSection #writeForm ul li {
+          flex: 0 0 100%;
+          display: flex;
+          justify-content: center; }
+          body .writeSection #writeForm ul li #title {
+            flex: 0 0 100%;
+            padding: 1rem 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            border: 1px solid #343536;
+            outline: none;
+            background-color: transparent;
+            color: #d7dadc; }
+          body .writeSection #writeForm ul li #content {
+            flex: 0 0 100%;
+            padding: 1rem 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            outline: none;
+            resize: none;
+            background-color: transparent;
+            border: 1px solid #343536;
+            color: #d7dadc; }
+          body .writeSection #writeForm ul li:last-of-type {
+            justify-content: flex-end; }
+            body .writeSection #writeForm ul li:last-of-type #writeBtn {
+              border: 1px solid #ebeced;
+              background-color: #ebeced;
+              color: rgba(26, 26, 27, 0.5);
+              outline: none;
+              padding: 0.5rem 1.5rem;
+              border-radius: 5px;
+              margin: 0.5rem;
+              cursor: not-allowed; }
+
+/*# sourceMappingURL=boardWrite.css.map */

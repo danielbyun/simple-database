@@ -1,21 +1,26 @@
 package org.web.boardCommand;
 
 import org.web.boardDAO.BoardDAO;
-import org.web.boardDTO.BoardDTO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
-public class BoardList implements BoardCommand {
+public class BoardWrite implements BoardCommand {
     @Override
     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BoardDAO dao = BoardDAO.getInstance();
-        ArrayList<BoardDTO> lists = dao.list();
+        String userId = req.getParameter("userId");
+        String title = req.getParameter("title");
+        String content = req.getParameter("content");
 
-        req.setAttribute("lists", lists);
-        req.setAttribute("url", "boardList.jsp");
+        BoardDAO dao = BoardDAO.getInstance();
+
+        int result = dao.write(userId, title, content);
+        PrintWriter out = resp.getWriter();
+
+        out.write(result + "");
+        out.close();
     }
 }
