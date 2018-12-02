@@ -1,0 +1,181 @@
+@import '../assets/_variables.scss';
+
+body {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 80%, rgba(0, 0, 0, 1) 99%), url("../img/team.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .boardView {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .boards {
+            flex: 0 0 70%;
+            .board {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                .post {
+                    flex: 0 0 100%;
+                    small {
+                        color: $smallColor;
+                        flex: 0 0 100%;
+                        padding: 0 0.5rem;
+                    }
+                    h1 {
+                        padding: 0.5rem;
+                        flex: 0 0 100%;
+                    }
+                    .content {
+                        padding: 0.5rem;
+                        flex: 0 0 100%;
+                    }
+                    .editArea {
+                        display: none;
+                        flex-wrap: wrap;
+                        justify-content: flex-end;
+                        textarea {
+                            width: 100%;
+                            flex: 0 0 100%;
+                            background: transparent;
+                            resize: none;
+                            outline: none;
+                            border: 1px solid $smallColor;
+                            border-radius: 5px;
+                            padding: 1rem 0.5rem;
+                            color: $textColor;
+                            &:focus {
+                                border: 1px solid $boardBorder;
+                            }
+                        }
+                        input[type=button] {
+                            border: 0;
+                            border-radius: 5px;
+                            outline: none;
+                            margin: 1rem 0.1rem;
+                            padding: 0.5rem 1.5rem;
+                            cursor: not-allowed;
+                            color: $textColor;
+                            // cancel
+                            &:first-of-type {
+                                background: transparent;
+                                cursor: pointer
+                            }
+                        }
+                    }
+                }
+                margin: 1rem;
+                border-radius: 5px;
+                background-color: $boardBackground;
+                color: $textColor;
+                padding: 1rem;
+                small {
+                    color: $smallColor;
+                    flex: 0 0 100%;
+                }
+                h1 {
+                    padding: 0.5rem 0;
+                    flex: 0 0 100%;
+                }
+                .content {
+                    padding-top: 0.5rem;
+                    flex: 0 0 100%;
+                }
+                .commentPrompt {
+                    display: flex;
+                    flex: 0 0 100%;
+                    padding: 1rem 0;
+                    li {
+                        display: flex;
+                        a {
+                            display: flex;
+                            align-items: center;
+                            text-decoration: none;
+                            color: $smallColor;
+                            border-radius: 5px;
+                            padding: 0.5rem;
+                            transition: all 0.1s ease-in-out;
+                            &:hover {
+                                background: #343536;
+                            }
+                            &:nth-of-type(2),
+                            &:nth-of-type(3),
+                            &:last-of-type {
+                                margin-left: 1rem;
+                            }
+                            i {
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                }
+                .reply {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex: 0 0 100%;
+                    li {
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex: 0 0 100%;
+                        justify-content: flex-end;
+                        textarea {
+                            width: 100%;
+                            flex: 0 0 100%;
+                            background: transparent;
+                            resize: none;
+                            outline: none;
+                            border: 1px solid $smallColor;
+                            border-radius: 5px;
+                            padding: 1rem 0.5rem;
+                            color: $textColor;
+                            &:focus {
+                                border: 1px solid $boardBorder;
+                            }
+                        }
+                        input[type=button] {
+                            border: 0;
+                            border-radius: 5px;
+                            outline: none;
+                            margin: 1rem 0;
+                            padding: 0.5rem 1.5rem;
+                            cursor: not-allowed;
+                            color: $textColor;
+                        }
+                    }
+                }
+                .signUpPrompt {
+                    display: flex;
+                    flex: 0 0 100%;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: 1px solid rgb(52, 53, 54);
+                    padding: 0.5rem 0;
+                    margin-top: 1rem;
+                    li {
+                        display: flex;
+                        align-items: center;
+                        color: $smallColor;
+                        p {
+                            padding: 0 0.5rem;
+                            flex: 0 0 100%;
+                        }
+                        a {
+                            font-size: 14px;
+                            text-decoration: none;
+                            color: $smallColor;
+                            margin: 0 0.5rem;
+                            border: 2px solid $boardBorder;
+                            padding: 0.5rem 1.5rem;
+                            border-radius: 5px;
+                            &:nth-of-type(2) {
+                                background-color: $textColor;
+                                color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -12,7 +12,7 @@ body {
         h1 {
             flex: 0 0 70%;
             margin: 0.5rem auto;
-            color: rgb(215, 218, 220);
+            color: $textColor;
         }
         #writeForm {
             flex: 0 0 70%;
@@ -27,7 +27,7 @@ body {
                     flex: 0 0 600px;
                     border-radius: 10px;
                     background-color: $error;
-                    color: $lightGrey;
+                    color: $textColor;
                     padding: 1rem;
                     margin-bottom: 10px;
                     display: none;
@@ -36,7 +36,6 @@ body {
                     flex: 0 0 100%;
                     display: flex;
                     justify-content: center;
-
                     #title {
                         flex: 0 0 100%;
                         padding: 1rem 0.5rem;
@@ -45,8 +44,7 @@ body {
                         border: 1px solid rgb(52, 53, 54);
                         outline: none;
                         background-color: transparent;
-
-                        color: rgb(215, 218, 220);
+                        color: $textColor;
                     }
                     #content {
                         flex: 0 0 100%;
@@ -57,13 +55,13 @@ body {
                         resize: none;
                         background-color: transparent;
                         border: 1px solid rgb(52, 53, 54);
-                        color: rgb(215, 218, 220);
+                        color: $textColor;
                     }
                     &:last-of-type {
                         justify-content: flex-end;
                         #writeBtn {
-                            border: 1px solid rgb(235, 236, 237);
-                            background-color: rgb(235, 236, 237);
+                            border: 1px solid $boardBorder;
+                            background-color: $buttonBackgroundColor;
                             color: rgba(26, 26, 27, 0.5);
                             outline: none;
                             padding: 0.5rem 1.5rem;

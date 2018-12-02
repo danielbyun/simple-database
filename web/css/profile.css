@@ -25,7 +25,7 @@ body {
           margin-bottom: 10px;
           display: none; }
         body main section #updateForm ul {
-          background: #efefef;
+          background: #1a1a1b;
           border-radius: 10px;
           display: flex;
           flex-wrap: wrap;
@@ -33,7 +33,8 @@ body {
           padding: 1rem; }
           body main section #updateForm ul h1 {
             flex: 0 0 100%;
-            text-align: center; }
+            text-align: center;
+            color: #d7dadc; }
           body main section #updateForm ul li {
             flex: 0 0 100%;
             display: flex;
@@ -51,14 +52,14 @@ body {
               body main section #updateForm ul li input:not([type=button]) {
                 background: transparent;
                 border-bottom: 2px solid lightslategrey;
-                border-radius: 0 0 10px 0; }
+                border-radius: 0 0 10px 0;
+                color: #d7dadc; }
             body main section #updateForm ul li:nth-of-type(2) {
               justify-content: space-around; }
               body main section #updateForm ul li:nth-of-type(2) input {
                 /* userId */ }
                 body main section #updateForm ul li:nth-of-type(2) input:first-of-type {
-                  flex: 0 0 77%;
-                  border: 1px solid red; }
+                  flex: 0 0 77%; }
                 body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(2) {
                   flex: 0 0 77%; }
                 body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(3) {
@@ -69,8 +70,6 @@ body {
                   body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(3):hover {
                     color: white;
                     background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); }
-                  body main section #updateForm ul li:nth-of-type(2) input:nth-of-type(3):focus {
-                    box-shadow: 0 0 10px pink; }
             body main section #updateForm ul li:nth-of-type(3) {
               justify-content: space-around; }
               body main section #updateForm ul li:nth-of-type(3) input {
@@ -88,7 +87,6 @@ body {
                 text-decoration: none;
                 color: black;
                 padding: 1rem;
-                border: 1px solid pink;
                 border-radius: 10px;
                 transition: all 0.2s ease-in-out; }
                 body main section #updateForm ul li:nth-of-type(5) input[type=button]:hover,
@@ -102,7 +100,6 @@ body {
                 text-decoration: none;
                 color: black;
                 padding: 1rem;
-                border: 1px solid pink;
                 border-radius: 10px;
                 transition: all 0.2s ease-in-out; }
                 body main section #updateForm ul li:last-of-type input[type=button]:hover,

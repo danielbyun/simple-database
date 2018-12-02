@@ -28,7 +28,7 @@ body {
           margin-bottom: 10px;
           display: none; }
         body main section form ul {
-          background: #efefef;
+          background: #1a1a1b;
           border-radius: 10px;
           display: flex;
           flex-wrap: wrap;
@@ -48,22 +48,23 @@ body {
               body main section form ul li input:not([type=button]) {
                 background: transparent;
                 border-bottom: 2px solid lightslategrey;
-                border-radius: 0 0 10px 0; }
+                border-radius: 0 0 10px 0;
+                color: #d7dadc; }
             body main section form ul li:first-of-type {
               justify-content: space-around; }
               body main section form ul li:first-of-type input {
                 /* check id button */ }
                 body main section form ul li:first-of-type input:first-of-type {
                   flex: 0 0 77%; }
-                body main section form ul li:first-of-type input:nth-of-type(2) {
+                body main section form ul li:first-of-type input:last-of-type {
                   flex: 0 0 10%;
                   transition: all 0.2s ease-in-out;
                   outline: 0;
                   cursor: pointer; }
-                  body main section form ul li:first-of-type input:nth-of-type(2):hover {
+                  body main section form ul li:first-of-type input:last-of-type:hover {
                     color: white;
                     background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%); }
-                  body main section form ul li:first-of-type input:nth-of-type(2):focus {
+                  body main section form ul li:first-of-type input:last-of-type:focus {
                     box-shadow: 0 0 10px pink; }
             body main section form ul li:nth-of-type(2) {
               justify-content: space-around; }

@@ -28,7 +28,7 @@ body {
                     display: none;
                 }
                 ul {
-                    background: $lightGrey;
+                    background: $boardBackground;
                     border-radius: 10px;
                     display: flex;
                     flex-wrap: wrap;
@@ -37,6 +37,7 @@ body {
                     h1 {
                         flex: 0 0 100%;
                         text-align: center;
+                        color: $textColor;
                     }
                     li {
                         flex: 0 0 100%;
@@ -52,6 +53,7 @@ body {
                                 background: transparent;
                                 border-bottom: 2px solid lightslategrey;
                                 border-radius: 0 0 10px 0;
+                                color: $textColor;
                             }
                         }
                         /* userId & checkId*/
@@ -60,7 +62,6 @@ body {
                             input {
                                 &:first-of-type {
                                     flex: 0 0 77%;
-                                    border: 1px solid red;
                                 }
                                 /* userId */
                                 &:nth-of-type(2) {
@@ -76,9 +77,6 @@ body {
                                         background: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
                                         linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
                                         linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
-                                    }
-                                    &:focus {
-                                        box-shadow: 0 0 10px $pink;
                                     }
                                 }
                             }
@@ -111,7 +109,6 @@ body {
                                 text-decoration: none;
                                 color: $black;
                                 padding: 1rem;
-                                border: 1px solid $pink;
                                 border-radius: 10px;
                                 transition: all 0.2s ease-in-out;
                                 &:hover {
@@ -129,7 +126,6 @@ body {
                                 text-decoration: none;
                                 color: $black;
                                 padding: 1rem;
-                                border: 1px solid $pink;
                                 border-radius: 10px;
                                 transition: all 0.2s ease-in-out;
                                 &:hover {

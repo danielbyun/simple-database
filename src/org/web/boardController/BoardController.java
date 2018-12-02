@@ -32,11 +32,21 @@ public class BoardController extends HttpServlet {
         String url = "";
         BoardCommand action;
 
+        RequestDispatcher dispatcher;
+
         switch (basicurl) {
             case "/boardList.bo":
                 action = new BoardList();
                 action.executeQueryCommand(req, resp);
                 url = (String) req.getAttribute("url");
+
+                dispatcher = req.getRequestDispatcher(url);
+                dispatcher.forward(req, resp);
+
+                break;
+            case"/boardCommentCount.bo":
+                action = new BoardCommentCount();
+                action.executeQueryCommand(req, resp);
 
                 break;
             case "/boardUpdate.bo":
@@ -52,11 +62,17 @@ public class BoardController extends HttpServlet {
             case "/boardView.bo":
                 action = new BoardView();
                 action.executeQueryCommand(req, resp);
+                url = (String) req.getAttribute("url");
+
+                dispatcher = req.getRequestDispatcher(url);
+                dispatcher.forward(req, resp);
+
+                break;
+            case "/boardReply.bo":
+                action = new BoardReply();
+                action.executeQueryCommand(req, resp);
 
                 break;
         }
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher(url);
-        dispatcher.forward(req, resp);
     }
 }

@@ -10,8 +10,6 @@ import java.io.PrintWriter;
 public class MemberLogout implements MemberCommand {
     @Override
     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("logging the user out");
-
         HttpSession session = req.getSession();
         String url;
 

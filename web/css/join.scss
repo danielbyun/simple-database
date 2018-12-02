@@ -31,7 +31,7 @@ body {
                     display: none;
                 }
                 ul {
-                    background: $lightGrey;
+                    background: $boardBackground;
                     border-radius: 10px;
                     display: flex;
                     flex-wrap: wrap;
@@ -51,7 +51,7 @@ body {
                                 background: transparent;
                                 border-bottom: 2px solid lightslategrey;
                                 border-radius: 0 0 10px 0;
-
+                                color: $textColor;
                             }
                         }
                         &:first-of-type {
@@ -61,7 +61,7 @@ body {
                                     flex: 0 0 77%;
                                 }
                                 /* check id button */
-                                &:nth-of-type(2) {
+                                &:last-of-type {
                                     flex: 0 0 10%;
                                     transition: all 0.2s ease-in-out;
                                     outline: 0;
