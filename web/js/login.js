@@ -1,6 +1,3 @@
-// login Form
-let loginForm = document.getElementById("loginForm");
-
 // error message
 let errorMessage = document.getElementById("errorMsg");
 

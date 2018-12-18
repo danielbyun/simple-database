@@ -7,20 +7,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class BoardView implements BoardCommand {
     @Override
     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int mId = (Integer.parseInt(req.getParameter("mId")));
-//        int mGroup = (Integer.parseInt(req.getParameter("mGroup")));
 
         BoardDAO dao = BoardDAO.getInstance();
         BoardDTO dto = dao.boardView(mId);
-//        int count = dao.boardReplyCount(mGroup);
-//        System.out.println(count);
-        
+
+        // get the arraylist of all posts
+        ArrayList<BoardDTO> lists = dao.list();
+
+        // send all posts to boardView page
+        req.setAttribute("lists", lists);
+
+        // send the specific post requested to view
         req.setAttribute("list", dto);
-//        req.setAttribute("count", count);
+
+        // req.setAttribute("count", count);
         req.setAttribute("url", "/boardView.jsp");
     }
 }

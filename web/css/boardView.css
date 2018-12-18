@@ -1,41 +1,192 @@
 body {
-  background: linear-gradient(to bottom, black 1%, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 80%, black 99%), url("../img/team.jpg") no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
-  body .boardView {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; }
-    body .boardView .boards {
-      flex: 0 0 70%; }
-      body .boardView .boards .board {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 1rem;
-        border-radius: 5px;
-        background-color: #1a1a1b;
-        color: #d7dadc;
-        padding: 1rem; }
-        body .boardView .boards .board .post {
-          flex: 0 0 100%; }
-          body .boardView .boards .board .post small {
+  background: black; }
+  body main {
+    flex: 1;
+    overflow: auto; }
+    body main .boardView {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; }
+      body main .boardView .boards {
+        flex: 0 0 70%; }
+        body main .boardView .boards .board {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 1rem;
+          border-radius: 5px;
+          background-color: #1a1a1b;
+          color: #d7dadc;
+          padding: 1rem; }
+          body main .boardView .boards .board .post {
+            flex: 0 0 100%; }
+            body main .boardView .boards .board .post small {
+              color: #818384;
+              flex: 0 0 100%;
+              padding: 0 0.5rem; }
+            body main .boardView .boards .board .post h1 {
+              padding: 0.5rem;
+              flex: 0 0 100%; }
+            body main .boardView .boards .board .post .content {
+              padding: 0.5rem;
+              flex: 0 0 100%; }
+            body main .boardView .boards .board .post .editArea {
+              display: none;
+              flex-wrap: wrap;
+              justify-content: flex-end; }
+              body main .boardView .boards .board .post .editArea textarea {
+                width: 100%;
+                flex: 0 0 100%;
+                background: transparent;
+                resize: none;
+                outline: none;
+                border: 1px solid #818384;
+                border-radius: 5px;
+                padding: 1rem 0.5rem;
+                color: #d7dadc; }
+                body main .boardView .boards .board .post .editArea textarea:focus {
+                  border: 1px solid #ebeced; }
+              body main .boardView .boards .board .post .editArea input[type=button] {
+                border: 0;
+                border-radius: 5px;
+                outline: none;
+                margin: 1rem 0.1rem;
+                padding: 0.5rem 1.5rem;
+                cursor: not-allowed;
+                color: #d7dadc; }
+                body main .boardView .boards .board .post .editArea input[type=button]:first-of-type {
+                  background: transparent;
+                  cursor: pointer; }
+          body main .boardView .boards .board small {
             color: #818384;
+            flex: 0 0 100%; }
+          body main .boardView .boards .board h1 {
+            padding: 0.5rem 0;
+            flex: 0 0 100%; }
+          body main .boardView .boards .board .content {
+            padding-top: 0.5rem;
+            flex: 0 0 100%; }
+          body main .boardView .boards .board .commentPrompt {
+            display: flex;
             flex: 0 0 100%;
-            padding: 0 0.5rem; }
-          body .boardView .boards .board .post h1 {
-            padding: 0.5rem;
+            padding: 1rem 0; }
+            body main .boardView .boards .board .commentPrompt li {
+              display: flex; }
+              body main .boardView .boards .board .commentPrompt li a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: #818384;
+                border-radius: 5px;
+                padding: 0.5rem;
+                transition: all 0.1s ease-in-out; }
+                body main .boardView .boards .board .commentPrompt li a:hover {
+                  background: #343536; }
+                body main .boardView .boards .board .commentPrompt li a:nth-of-type(2), body main .boardView .boards .board .commentPrompt li a:nth-of-type(3), body main .boardView .boards .board .commentPrompt li a:last-of-type {
+                  margin-left: 1rem; }
+                body main .boardView .boards .board .commentPrompt li a i {
+                  padding-right: 5px; }
+          body main .boardView .boards .board .reply {
+            display: flex;
+            flex-wrap: wrap;
             flex: 0 0 100%; }
-          body .boardView .boards .board .post .content {
-            padding: 0.5rem;
+            body main .boardView .boards .board .reply li {
+              display: flex;
+              flex-wrap: wrap;
+              flex: 0 0 100%;
+              justify-content: flex-end; }
+              body main .boardView .boards .board .reply li textarea {
+                width: 100%;
+                flex: 0 0 100%;
+                background: transparent;
+                resize: none;
+                outline: none;
+                border: 1px solid #818384;
+                border-radius: 5px;
+                padding: 1rem 0.5rem;
+                color: #d7dadc; }
+                body main .boardView .boards .board .reply li textarea:focus {
+                  border: 1px solid #ebeced; }
+              body main .boardView .boards .board .reply li input[type=button] {
+                border: 0;
+                border-radius: 5px;
+                outline: none;
+                margin: 1rem 0;
+                padding: 0.5rem 1.5rem;
+                cursor: not-allowed;
+                color: #d7dadc; }
+          body main .boardView .boards .board .signUpPrompt {
+            display: flex;
+            flex: 0 0 100%;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #343536;
+            padding: 0.5rem 0;
+            margin-top: 1rem; }
+            body main .boardView .boards .board .signUpPrompt li {
+              display: flex;
+              align-items: center;
+              color: #818384; }
+              body main .boardView .boards .board .signUpPrompt li p {
+                padding: 0 0.5rem;
+                flex: 0 0 100%; }
+              body main .boardView .boards .board .signUpPrompt li a {
+                font-size: 14px;
+                text-decoration: none;
+                color: #818384;
+                margin: 0 0.5rem;
+                border: 2px solid #ebeced;
+                padding: 0.5rem 1.5rem;
+                border-radius: 5px; }
+                body main .boardView .boards .board .signUpPrompt li a:nth-of-type(2) {
+                  background-color: #d7dadc;
+                  color: black; }
+        body main .boardView .boards .replyBoard {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 1rem;
+          border-radius: 5px;
+          background-color: #1a1a1b;
+          color: #d7dadc;
+          padding: 1rem; }
+          body main .boardView .boards .replyBoard .post {
             flex: 0 0 100%; }
-          body .boardView .boards .board .post .editArea {
+            body main .boardView .boards .replyBoard .post small {
+              color: #818384;
+              flex: 0 0 100%;
+              padding: 0 0.5rem; }
+            body main .boardView .boards .replyBoard .post h1 {
+              padding: 0.5rem;
+              flex: 0 0 100%; }
+            body main .boardView .boards .replyBoard .post .content {
+              padding: 0.5rem;
+              flex: 0 0 100%; }
+          body main .boardView .boards .replyBoard .commentPrompt {
+            display: flex;
+            flex: 0 0 100%;
+            padding: 1rem 0 0 0; }
+            body main .boardView .boards .replyBoard .commentPrompt li {
+              display: flex; }
+              body main .boardView .boards .replyBoard .commentPrompt li a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: #818384;
+                border-radius: 5px;
+                padding: 0.5rem;
+                transition: all 0.1s ease-in-out; }
+                body main .boardView .boards .replyBoard .commentPrompt li a:hover {
+                  background: #343536; }
+                body main .boardView .boards .replyBoard .commentPrompt li a:nth-of-type(2), body main .boardView .boards .replyBoard .commentPrompt li a:nth-of-type(3), body main .boardView .boards .replyBoard .commentPrompt li a:last-of-type {
+                  margin-left: 1rem; }
+                body main .boardView .boards .replyBoard .commentPrompt li a i {
+                  padding-right: 5px; }
+          body main .boardView .boards .replyBoard .reply {
             display: none;
             flex-wrap: wrap;
             justify-content: flex-end; }
-            body .boardView .boards .board .post .editArea textarea {
+            body main .boardView .boards .replyBoard .reply textarea {
               width: 100%;
               flex: 0 0 100%;
               background: transparent;
@@ -45,9 +196,9 @@ body {
               border-radius: 5px;
               padding: 1rem 0.5rem;
               color: #d7dadc; }
-              body .boardView .boards .board .post .editArea textarea:focus {
+              body main .boardView .boards .replyBoard .reply textarea:focus {
                 border: 1px solid #ebeced; }
-            body .boardView .boards .board .post .editArea input[type=button] {
+            body main .boardView .boards .replyBoard .reply input[type=button] {
               border: 0;
               border-radius: 5px;
               outline: none;
@@ -55,92 +206,8 @@ body {
               padding: 0.5rem 1.5rem;
               cursor: not-allowed;
               color: #d7dadc; }
-              body .boardView .boards .board .post .editArea input[type=button]:first-of-type {
+              body main .boardView .boards .replyBoard .reply input[type=button]:first-of-type {
                 background: transparent;
                 cursor: pointer; }
-        body .boardView .boards .board small {
-          color: #818384;
-          flex: 0 0 100%; }
-        body .boardView .boards .board h1 {
-          padding: 0.5rem 0;
-          flex: 0 0 100%; }
-        body .boardView .boards .board .content {
-          padding-top: 0.5rem;
-          flex: 0 0 100%; }
-        body .boardView .boards .board .commentPrompt {
-          display: flex;
-          flex: 0 0 100%;
-          padding: 1rem 0; }
-          body .boardView .boards .board .commentPrompt li {
-            display: flex; }
-            body .boardView .boards .board .commentPrompt li a {
-              display: flex;
-              align-items: center;
-              text-decoration: none;
-              color: #818384;
-              border-radius: 5px;
-              padding: 0.5rem;
-              transition: all 0.1s ease-in-out; }
-              body .boardView .boards .board .commentPrompt li a:hover {
-                background: #343536; }
-              body .boardView .boards .board .commentPrompt li a:nth-of-type(2), body .boardView .boards .board .commentPrompt li a:nth-of-type(3), body .boardView .boards .board .commentPrompt li a:last-of-type {
-                margin-left: 1rem; }
-              body .boardView .boards .board .commentPrompt li a i {
-                padding-right: 5px; }
-        body .boardView .boards .board .reply {
-          display: flex;
-          flex-wrap: wrap;
-          flex: 0 0 100%; }
-          body .boardView .boards .board .reply li {
-            display: flex;
-            flex-wrap: wrap;
-            flex: 0 0 100%;
-            justify-content: flex-end; }
-            body .boardView .boards .board .reply li textarea {
-              width: 100%;
-              flex: 0 0 100%;
-              background: transparent;
-              resize: none;
-              outline: none;
-              border: 1px solid #818384;
-              border-radius: 5px;
-              padding: 1rem 0.5rem;
-              color: #d7dadc; }
-              body .boardView .boards .board .reply li textarea:focus {
-                border: 1px solid #ebeced; }
-            body .boardView .boards .board .reply li input[type=button] {
-              border: 0;
-              border-radius: 5px;
-              outline: none;
-              margin: 1rem 0;
-              padding: 0.5rem 1.5rem;
-              cursor: not-allowed;
-              color: #d7dadc; }
-        body .boardView .boards .board .signUpPrompt {
-          display: flex;
-          flex: 0 0 100%;
-          justify-content: space-between;
-          align-items: center;
-          border: 1px solid #343536;
-          padding: 0.5rem 0;
-          margin-top: 1rem; }
-          body .boardView .boards .board .signUpPrompt li {
-            display: flex;
-            align-items: center;
-            color: #818384; }
-            body .boardView .boards .board .signUpPrompt li p {
-              padding: 0 0.5rem;
-              flex: 0 0 100%; }
-            body .boardView .boards .board .signUpPrompt li a {
-              font-size: 14px;
-              text-decoration: none;
-              color: #818384;
-              margin: 0 0.5rem;
-              border: 2px solid #ebeced;
-              padding: 0.5rem 1.5rem;
-              border-radius: 5px; }
-              body .boardView .boards .board .signUpPrompt li a:nth-of-type(2) {
-                background-color: #d7dadc;
-                color: black; }
 
 /*# sourceMappingURL=boardView.css.map */

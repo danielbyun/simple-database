@@ -35,7 +35,7 @@ replyText.addEventListener("keyup", function () {
 // reply ajax call (using fetch) to controller
 function reply() {
     let url = "boardReply.bo";
-    let data = `mId=${mId.value}&mGroup=${mGroup.value}&step=${step.value}&indent=${indent.value}&userId=${userId.value}&title=${title.value}&content=${replyText.value}`;
+    let data = `mId=${mId.value}&mGroup=${mGroup.value}&step=${step.value}&indent=${indent.value}&userId=${userId.value}&title=${`re: ` + title.value}&content=${replyText.value}`;
 
     console.log(`${url}?${data}`);
 
@@ -43,16 +43,12 @@ function reply() {
         .then((resp) => resp.text())
         .then((data) => {
             if (data == 1) {
-                alert("you will be redirected in 2 seconds");
-                setTimeout(function () {
-                    location.href = "boardList.bo";
-                }, 2000);
+                location.href = "boardList.bo";
             }
         })
 }
 
-/*====================================================================================================================*/
-
+/*=========================================================*/
 /* EDIT SECTION */
 // edit button
 let showEdit = document.getElementById("edit");

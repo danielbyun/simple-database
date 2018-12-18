@@ -6,6 +6,8 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/boardView.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -68,8 +70,8 @@
                                 </ul>
                                 <ul class="reply">
                                     <li>
-                                        <textarea name="reply" id="reply" cols="30" rows="10" placeholder="what are your thoughts?"></textarea>
-                                        <input type="button" value="COMMENT" id="replyBtn">
+                                        <textarea name="reply" class="reply" cols="30" rows="10" placeholder="what are your thoughts?"></textarea>
+                                        <input type="button" value="COMMENT" class="replyBtn">
                                     </li>
                                 </ul>
                             </c:when>
@@ -86,6 +88,39 @@
                             </c:otherwise>
                         </c:choose>
                     </div>
+
+                    <c:forEach var="lists" items="${lists}" varStatus="loop">
+                        <c:if test="${list.mGroup == lists.mGroup && not loop.first && lists.step > 0}">
+                            <section class="replyBoard" style="margin-left: ${lists.indent * 2}rem">
+                                <div class="post">
+                                    <small>
+                                        posted by ${lists.userName}
+                                        on ${lists.date.toLocaleString()}
+                                    </small>
+                                    <h1>
+                                            ${lists.title}
+                                    </h1>
+                                    <p class="content">
+                                            ${lists.content}
+                                    </p>
+                                </div>
+                                <ul class="commentPrompt">
+                                    <li>
+                                        <a href=""><i class="fas fa-comment-alt"></i>reply</a>
+                                        <c:if test="${sessionScope.sessionId.equals(list.userName)}">
+                                            <a href="#" id="edit"><i class="fas fa-pen-square"></i>edit</a>
+                                        </c:if>
+                                    </li>
+                                </ul>
+                                <ul class="reply">
+                                    <li>
+                                        <textarea name="reply" class="reply" cols="30" rows="10" placeholder="what are your thoughts?"></textarea>
+                                        <input type="button" value="COMMENT" class="replyBtn">
+                                    </li>
+                                </ul>
+                            </section>
+                        </c:if>
+                    </c:forEach>
                 </div>
             </section>
         </main>

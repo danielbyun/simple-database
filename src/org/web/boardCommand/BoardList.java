@@ -8,29 +8,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class BoardList implements BoardCommand {
     @Override
     public void executeQueryCommand(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         BoardDAO dao = BoardDAO.getInstance();
+
+        // all lists put into an ArrayList
         ArrayList<BoardDTO> lists = dao.list();
 
-//        int mGroup = Integer.parseInt(req.getParameter("mGroup"));
-//        System.out.println(mGroup);
-
-//        int count = dao.commentCount(mGroup);
-//        System.out.println(lists.get(1).getmGroup());
-//        System.out.println(lists.get(2).getmGroup());
-//        System.out.println(lists.get(3).getmGroup());
-
         // find occurrences on each mGroup
-        for (int i = 0; i < lists.size(); i++) {
-            ArrayList<Integer> mGroupArray = new ArrayList<>();
+//        for (int i = 0; i < lists.size(); i++) {
+//            ArrayList<Integer> mGroupArray = new ArrayList<>();
+//
+//            mGroupArray.add(lists.get(i).getmGroup());
+//        }
 
-            mGroupArray.add(lists.get(i).getmGroup());
-
-//            System.out.print(mGroupArray);
-        }
+        // find occurrence of same mId posts
+//        System.out.println(Collections.frequency(lists, mId));
 
         req.setAttribute("lists", lists);
         req.setAttribute("url", "/boardList.jsp");

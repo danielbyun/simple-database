@@ -1,69 +1,197 @@
 @import '../assets/_variables.scss';
 
-main {
-    flex: 1;
-    overflow: auto; /* to scroll just the "main" div */
-    .boardList {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        .boards {
-            flex: 0 0 80%;
-            a {
-                text-decoration: none;
-                color: $textColor;
-            }
-            .boardWrap {
-                flex: 0 0 100%;
-                background-color: rgb(26, 26, 27);
-                margin: 1rem;
-                padding: 1rem;
-                border-radius: 5px;
-                transition: 0.1s all ease-in-out;
-                border: 2px solid transparent;
-                &:hover {
-                    border: 2px solid rgb(215, 218, 220);
-                    border-radius: 5px;
+body {
+    background: black;
+    main {
+        flex: 1;
+        overflow: auto; /* to scroll just the "main" div */
+        .boardList {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            .boards {
+                flex: 0 0 80%;
+                a {
+                    text-decoration: none;
+                    color: $textColor;
                 }
-                .board {
-                    color: rgb(215, 218, 220);
-                    small {
-                        color: rgb(129, 131, 132);
-                        padding: 0 0.5rem;
+                .boardWrap {
+                    flex: 0 0 100%;
+                    background-color: rgb(26, 26, 27);
+                    margin: 1rem;
+                    padding: 1rem;
+                    border-radius: 5px;
+                    transition: 0.1s all ease-in-out;
+                    border: 2px solid transparent;
+                    &:hover {
+                        border: 2px solid rgb(215, 218, 220);
+                        border-radius: 5px;
                     }
-                    h1 {
-                        padding: 0.5rem;
-                    }
-                    p {
-                        padding: 0.5rem;
-                        display: flex;
-                    }
-                    .social {
-                        display: flex;
-                        margin-top: 0.5rem;
-                        a {
-                            display: flex;
-                            align-items: center;
-                            text-decoration: none;
-                            color: $smallColor;
-                            border-radius: 5px;
+                    .board {
+                        color: rgb(215, 218, 220);
+                        small {
+                            color: rgb(129, 131, 132);
+                            padding: 0 0.5rem;
+                        }
+                        h1 {
                             padding: 0.5rem;
-                            transition: all 0.1s ease-in-out;
-                            &:hover {
-                                background: #343536;
-                            }
-                            &:first-of-type {
-                                display: none;
-                            }
-                            &:nth-of-type(3),
-                            &:nth-of-type(4),
-                            &:last-of-type {
-                                margin-left: 1rem;
-                            }
-                            i {
-                                padding-right: 5px;
+                        }
+                        p {
+                            padding: 0.5rem;
+                            display: flex;
+                        }
+                        .social {
+                            display: flex;
+                            margin-top: 0.5rem;
+                            a {
+                                display: flex;
+                                align-items: center;
+                                text-decoration: none;
+                                color: $smallColor;
+                                border-radius: 5px;
+                                padding: 0.5rem;
+                                transition: all 0.1s ease-in-out;
+                                &:hover {
+                                    background: #343536;
+                                }
+                                &:first-of-type {
+                                    display: none;
+                                }
+                                &:nth-of-type(3),
+                                &:nth-of-type(4),
+                                &:last-of-type {
+                                    margin-left: 1rem;
+                                }
+                                i {
+                                    padding-right: 5px;
+                                }
                             }
                         }
+                    }
+                }
+                .reply {
+                    display: none;
+                    flex-wrap: wrap;
+                    justify-content: flex-end;
+                    #replyBoard {
+                        width: 100%;
+                        flex: 0 0 100%;
+                        background: transparent;
+                        resize: none;
+                        outline: none;
+                        border: 1px solid $smallColor;
+                        border-radius: 5px;
+                        padding: 1rem 0.5rem;
+                        margin-top: 1rem;
+                        color: $textColor;
+                        &:focus {
+                            border: 1px solid $boardBorder;
+                        }
+                    }
+                    input[type=button] {
+                        border: 0;
+                        border-radius: 5px;
+                        outline: none;
+                        margin: 1rem 0.1rem;
+                        padding: 0.5rem 1.5rem;
+                        cursor: not-allowed;
+                        color: $textColor;
+                        // cancel button
+                        &:first-of-type {
+                            background: transparent;
+                            cursor: pointer
+                        }
+                    }
+                }
+                .editArea {
+                    display: none;
+                    flex-wrap: wrap;
+                    justify-content: flex-end;
+                    #editContent {
+                        width: 100%;
+                        flex: 0 0 100%;
+                        background: transparent;
+                        resize: none;
+                        outline: none;
+                        border: 1px solid $smallColor;
+                        border-radius: 5px;
+                        padding: 1rem 0.5rem;
+                        margin-top: 1rem;
+                        color: $textColor;
+                        &:focus {
+                            border: 1px solid $boardBorder;
+                        }
+                    }
+                    input[type=button] {
+                        border: 0;
+                        border-radius: 5px;
+                        outline: none;
+                        margin: 1rem 0.1rem;
+                        padding: 0.5rem 1.5rem;
+                        cursor: not-allowed;
+                        color: $textColor;
+                        // cancel button
+                        &:first-of-type {
+                            background: transparent;
+                            cursor: pointer
+                        }
+                    }
+                }
+            }
+        }
+        .page-load-status {
+            display: none;
+            .loader-ellips {
+                font-size: 20px;
+                position: relative;
+                width: 4em;
+                height: 1em;
+                margin: 10px auto;
+                color: white;
+                .loader-ellips__dot {
+                    display: block;
+                    width: 1em;
+                    height: 1em;
+                    border-radius: 0.5em;
+                    background: #555;
+                    position: absolute;
+                    animation-duration: 0.5s;
+                    animation-timing-function: ease;
+                    animation-iteration-count: infinite;
+                    @keyframes reveal {
+                        from {
+                            -webkit-transform: scale(0.001);
+                        }
+                        to {
+                            -webkit-transform: scale(1);
+                        }
+                    }
+
+                    @keyframes slide {
+                        to {
+                            -webkit-transform: translateX(1.5em)
+                        }
+                    }
+                    &:nth-child(1),
+                    &:nth-child(2) {
+                        left: 0;
+                    }
+                    &:nth-child(3) {
+                        left: 1.5em;
+                    }
+                    &:nth-child(4) {
+                        left: 3em;
+                    }
+                    &:nth-child(1) {
+                        animation-name: reveal;
+                    }
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        animation-name: slide;
+                    }
+                    &:nth-child(4) {
+                        animation-name: reveal;
+                        animation-direction: reverse;
                     }
                 }
             }

@@ -3,7 +3,6 @@ package org.web.memberDAO;
 import org.web.dbConnect.DBConnect;
 import org.web.memberDTO.MemberDTO;
 
-import java.lang.reflect.Member;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

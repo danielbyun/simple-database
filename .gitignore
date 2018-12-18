@@ -29,3 +29,7 @@ web/css/header.css.map
 *.map
 
 DBConnect.java
+connection pool configuration.txt
+project outline.txt
+*.map
+*.iml
