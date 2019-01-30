@@ -12,17 +12,17 @@
     <context-param>
         <description>sql url</description>
         <param-name>url</param-name>
-        <param-value></param-value>
+        <param-value>jdbc:mysql://localhost:3306/webprojects?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;useUnicode=true&amp;serverTimezone=UTC</param-value>
     </context-param>
     <context-param>
         <description>hostId</description>
         <param-name>hostId</param-name>
-        <param-value>[id]</param-value>
+        <param-value>[]</param-value>
     </context-param>
     <context-param>
         <description>hostPw</description>
         <param-name>hostPw</param-name>
-        <param-value>[password]</param-value>
+        <param-value>[]</param-value>
     </context-param>
 
     <!-- connection pool -->

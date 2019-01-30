@@ -49,7 +49,7 @@ public class MemberDTO {
         this.userEmail = userEmail;
     }
 
-    // good for debugging
+    // for debugging purposes
     @Override
     public String toString() {
         return "MemberDTO{" +

@@ -21,7 +21,7 @@ public class MemberDAO {
         return singleton.instance;
     }
 
-//    // i put the last method in a method to make the code DRY
+    //  i put the last method in a method to make the code DRY
     private void cleanUp() {
         try {
             if (conn != null) conn.close();

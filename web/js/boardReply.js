@@ -105,10 +105,11 @@ function editContentFunc() {
     fetch(`${url}?${data}`)
         .then((resp) => resp.text())
         .then((data) => {
-            if (data == 1) {
-                location.href = `boardView.bo?mId=${mId.value}`;
-            } else {
-                alert("failed, try again");
+                if (data == 1) {
+                    location.href = `boardView.bo?mId=${mId.value}`;
+                } else {
+                    alert("failed, try again");
+                }
             }
-        })
+        )
 }

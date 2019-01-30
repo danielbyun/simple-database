@@ -14,6 +14,11 @@ public class BoardDAO {
     private BoardDAO() {
     }
 
+    // singleton pattern
+    private static class singleton {
+        private static final BoardDAO instance = new BoardDAO();
+    }
+
     public static BoardDAO getInstance() {
         return singleton.instance;
     }
@@ -125,12 +130,6 @@ public class BoardDAO {
         }
 
         return dto;
-    }
-
-    public int update(int mId, String userId, String content) {
-        int result = 0;
-
-        return result;
     }
 
     public int boardReply(int mId, int mGroup, int step, int indent, String userId, String title, String content) {
@@ -248,8 +247,23 @@ public class BoardDAO {
 
         return result;
     }
+    public int boardDelete(String mId) {
+        int result = 0;
 
-    private static class singleton {
-        private static final BoardDAO instance = new BoardDAO();
+        try {
+            conn = DBConnect.getConnection();
+            String query = "delete from simpleDatabase.posts where mId = ?";
+            pstm = conn.prepareStatement(query);
+
+            pstm.setString(1, mId);
+
+            result = pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            cleanUp();
+        }
+
+        return result;
     }
 }

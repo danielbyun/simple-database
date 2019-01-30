@@ -1,5 +1,7 @@
 let mGroup = document.getElementsByClassName("mGroup");
 let mGroupArr = [];
+let replyBoard = document.getElementById("replyBoard");
+let editContent = document.getElementById("editContent");
 
 // retrieve each mGroup number from each board
 for (let i = 0; i < mGroup.length; i++) {
@@ -8,22 +10,9 @@ for (let i = 0; i < mGroup.length; i++) {
 
 let url = "boardCommentCount.bo";
 let data = `mGroupArr=${mGroupArr}`;
-// console.log(data);
 
-// jquery scroll detection v2
+// jquery scroll detection v2 (feature not implemented yet)
 $(window).scroll(function () {
-    // let scroll = $(window).scrollTop();
-    // alert("yo");
-
-    // if ((window.innerHeight + Math.ceil(window.pageYOffset + 1)) >= document.body.offsetHeight) {
-    //     console.log("second version");
-    //     alert("second version");
-    // }
-
-    // if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-    //     alert("bottom");
-    // }
-
     if ($(window).scrollTop() + $(window).height() === getDocHeight()) {
         alert("bottom!");
     }
@@ -61,6 +50,7 @@ let editBtn = document.getElementsByClassName("editBtn");
 let cancelBtn = document.getElementsByClassName("cancelBtn");
 let cancelBtnEdit = document.getElementsByClassName("cancelBtnEdit");
 let content = document.getElementsByClassName("content");
+let editSubmit = document.getElementById("editSubmit");
 
 // textareas
 let replyArea = document.getElementsByClassName("reply");
@@ -84,41 +74,51 @@ for (let j = 0; j <= boardWrap.length + 1; j++) {
         if (!replyShowing) {
             replyArea[j].style.display = "flex";
             editArea[j].style.display = "none";
-
-            replyShowing = true;
         }
+        replyShowing = true;
     });
 
     // textarea should disappear when the user clicks 'cancel'
     cancelBtn[j].addEventListener("click", function () {
         if (replyShowing) {
             replyArea[j].style.display = "none";
-
-            replyShowing = false;
         }
+        replyShowing = false;
     });
 
     cancelBtnEdit[j].addEventListener("click", function () {
         if (editShowing) {
             editArea[j].style.display = "none";
+        }
+        editContent.textContent = "";
+        editShowing = false;
+    });
+
+    // get it to work on the correct post (had to take it out of the for loop bc it keeps ending it
+    editBtn[j].addEventListener("click", function () {
+        if (!editShowing) {
+            editArea[j].style.display = "flex";
+            replyArea[j].style.display = "none";
+
+            editShowing = true;
+        } else if (editShowing) {
+            editArea[j].style.display = "none";
 
             editShowing = false;
         }
     });
+
+    editContent[j].addEventListener("keyup", function () {
+        if (editContent[j].value === null || editContent[j].value.trim() === "") {
+
+            editSubmit[j].disabled = true;
+            editSubmit[j].style.cursor = "not-allowed";
+
+            return false;
+        }
+
+        editSubmit[j].disabled = false;
+        editSubmit[j].style.cursor = "pointer";
+        editSubmit[j].style.color = "black"
+    });
 }
-
-// get it to work on the correct post (had to take it out of the for loop bc it keeps ending it
-
-// editBtn[j].addEventListener("click", function () {
-//     if (!editShowing) {
-//         editArea[j].style.display = "flex";
-//         replyArea[j].style.display = "none";
-//
-//         editShowing = true;
-//     } else if (editShowing) {
-//         editArea[j].style.display = "none";
-//
-//         editShowing = false;
-//     }
-// });
-

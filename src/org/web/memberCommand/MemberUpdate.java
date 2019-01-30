@@ -25,7 +25,7 @@ public class MemberUpdate implements MemberCommand {
             HttpSession session = req.getSession(false);
             session.getAttribute("sessionId");
 
-//            session.setAttribute("member", member);
+            // session.setAttribute("member", member);
 
             url = "/viewProfile.mo?memberId=" + id;
             req.setAttribute("url", url);

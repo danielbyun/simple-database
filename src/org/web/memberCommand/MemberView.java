@@ -15,7 +15,7 @@ public class MemberView implements MemberCommand {
         MemberDAO dao = MemberDAO.getInstance();
         MemberDTO member = dao.memberView(memberId);
 
-        String url;
+        String url = "";
 
         if (member != null) {
             req.setAttribute("member", member);
